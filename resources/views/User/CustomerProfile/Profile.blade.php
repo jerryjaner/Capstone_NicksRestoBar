@@ -18,7 +18,7 @@
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">Customer Profile</h3>  
 			
-				@error('email')
+				{{-- @error('email')
 				
 	                <span class="invalid-feedback " role="alert">
 	                	<center>
@@ -28,7 +28,7 @@
 	                    </center>
 	                </span>
 	           
-	            @enderror
+	            @enderror --}}
 			
 		
 			<div class="login-agileinfo"> 
@@ -93,8 +93,9 @@
 
 										      	<input class="agile-ltext" type="text" name="address" placeholder="Address" required>
 
-										      	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email">
 
+										      {{-- 	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email">
+ --}}
 										      	 
 
 										      	<div class="modal-footer">

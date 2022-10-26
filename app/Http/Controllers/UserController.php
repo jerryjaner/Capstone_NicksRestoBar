@@ -22,7 +22,7 @@ class UserController extends Controller
    	 //	$categories = Category::where('category_status', 1) -> get();
     
    		$dishes = Dish::where('dish_status', 1) -> get();
-   		return view('User.include.Home',data: compact('dishes') );
+   		return view('User.include.Home',compact('dishes') );
    }
 
    public function dish_show($id){
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         if(count($CartDish) > 0){
 
-          return view('User.CheckOut.Shipping',data: compact('customer'));
+          return view('User.CheckOut.Shipping',compact('customer'));
         }
         else{
 
@@ -179,17 +179,17 @@ class UserController extends Controller
 
     public function customer_profile_update(Request $request){
 
-      $validated = $request->validate([
-        'email' => 'required|email|string|unique:users|max:255',
+      // $validated = $request->validate([
+      //   'email' => 'required|email|string|unique:users|max:255',
 
-      ]);
+      // ]);
 
       $customer_profile = User::find($request->id);
       $customer_profile->name = $request->name;
       $customer_profile->middlename = $request->middlename;
       $customer_profile->lastname = $request->lastname;
       $customer_profile -> address = $request -> address;
-      $customer_profile -> email = $request -> email;
+      // $customer_profile -> email = $request -> email;
       $customer_profile->save();
 
         $notification = array (
@@ -198,6 +198,7 @@ class UserController extends Controller
             'alert-type' =>'info'
         );
 
+       
         return back()->with($notification);
 
     }

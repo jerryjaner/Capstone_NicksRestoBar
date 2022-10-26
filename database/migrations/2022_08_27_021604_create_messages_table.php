@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('message')->nullable();
             $table->string('customer_email');
+            $table->string('message_status')->default('unread');
 
             $table->foreign('customer_email')
                   ->references('email')

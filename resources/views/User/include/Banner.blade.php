@@ -1,4 +1,12 @@
+@php
 
+	  if(Auth::check())
+      {
+		 $unread_msg = \App\Models\Message::where('customer_email', Auth::user()->email)
+	 								  ->where('message_status','unread')->count();
+	  }
+	
+@endphp
 
 
 <div class="banner">
@@ -100,7 +108,13 @@
 											  </li> 
 
 											   <li class="head-dpdn">
-											     <a href="{{ route('notification') }}"><i class="fa fa-bell" aria-hidden="true"></i> Notification</a>
+											     <a href="{{ route('notification') }}">
+											     	<i class="fa fa-bell" aria-hidden="true"></i> 
+											     
+											     	Notification 
+											     	<span class="badge badge-danger" title="Unread Message">{{ $unread_msg }} </span>
+
+											     </a>
 											  </li>  
 											  
 											  <li class="head-dpdn">

@@ -81,6 +81,7 @@
     #example td{
       color: black;
       text-align: center;
+
     }
     .dataTables_info{
       margin-left: 8%;
@@ -97,21 +98,48 @@
                 <th>#</th>
                 <th>Sender</th>
                 <th>Message</th>
-                <th>Date</th>
+                <th>Date Sent</th>
                 <th>Action</th>
-               
+                
             </tr>
         </thead>
         <tbody>
             @php($i = 1)
             @foreach($notification_msg as $notication)
-              <tr>
-                  <td>{{ $i++ }}</td>
-                  <td>{{ $notication -> sender }}</td>
-                  <td>{{ $notication -> message }}</td>
-                  <td>{{\Carbon\Carbon::parse($notication -> created_at)->toFormattedDateString() }}</td>
-                  <td></td>
-                  
+              <tr> 
+                  <td>
+                      @if ($notication ->  message_status == "unread")
+                       <b> {{ $i++ }}</b>
+                      @else
+                        {{ $i++ }}
+                      @endif
+                  </td>
+                  <td>
+
+                    @if ($notication ->  message_status == "unread")
+                      <b>{{ $notication -> sender }}</b>
+                    @else
+                       {{ $notication -> sender }}
+                    @endif
+                   
+                  </td>
+                  <td>
+                      @if ($notication ->  message_status == "unread")
+                        <b>{{ $notication -> message }}</b>
+                      @else
+                        {{ $notication -> message }}
+                      @endif
+
+                  </td>
+                  <td>
+                      @if ($notication ->  message_status == "unread")
+                        <b>{{\Carbon\Carbon::parse($notication -> created_at)->toFormattedDateString() }}</b>
+                      @else
+                        {{\Carbon\Carbon::parse($notication -> created_at)->toFormattedDateString() }}
+                      @endif
+                  </td>
+                  <td>Marks as read</td>
+                
               </tr>    
             @endforeach
         </tbody>

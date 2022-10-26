@@ -17,7 +17,7 @@ div.dataTables_wrapper div.dataTables_length select {
   <div class="card-header">
     <h3 class="card-title" id="messagefont"><b>Message Customer</b></h3>
            
-    <button type="button" class="btn btn-info btn-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#add" data-bs-whatever="@fat" id="messagefont"> Send Message</button>
+    <button type="button" class="btn btn-success btn-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#add" data-bs-whatever="@fat" id="messagefont"> Send Message</button>
   </div>
 
   <div class="card-body">
@@ -40,16 +40,15 @@ div.dataTables_wrapper div.dataTables_length select {
 
                 <div class="form-group">
                   <label>To</label>
-                  {{-- <input type="text" name="customer_email" placeholder="To" style="border-right: none; border-left: none; border-top:none; margin-left: 57px; width: 350px; outline: none;"> --}}
-
+                
                   <select  name="customer_email"   class="form-select" id="" required>
 
                         <option value="" hidden>- - - - - Select Customer Email - - - - -</option>
 
-                      @foreach($users as $user)
+                      @foreach($users as $user_email)
 
                         <option name="customer_email">
-                           {{$user-> email}}
+                           {{$user_email-> email}}
                         </option>
 
                       @endforeach
@@ -71,6 +70,8 @@ div.dataTables_wrapper div.dataTables_length select {
                 <div class="modal-footer">
                   {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>  --}}
                   <button type="submit" name="btn" class="btn btn-primary btn-sm">Send</button>
+                        
+
                 </div>
 
               </form>
