@@ -1,9 +1,11 @@
 @php
+    $prefix = Request::route()->getPrefix();
+    $route = Route::current()->getName();
 
 	  if(Auth::check())
       {
 		 $unread_msg = \App\Models\Message::where('customer_email', Auth::user()->email)
-	 								  ->where('message_status','unread')->count();
+	 									  ->where('message_status','unread')->count();
 	  }
 	
 @endphp
@@ -34,11 +36,11 @@
 							<ul class="nav navbar-nav navbar-right">
 
 							
-								<li><a href="{{route('user_dashboard')}}" class="active">Home</a></li>	
+								<li><a href="{{route('user_dashboard')}}" class="{{($route == 'user_dashboard')?'active':''}}">Home</a></li>	
 								<!-- Mega Menu -->
 
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Food <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle {{($route == 'category_dish')?'active':''}}" data-toggle="dropdown">Food <b class="caret"></b></a>
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="row">
 											<div class="col-sm-6">
@@ -47,13 +49,17 @@
 
 													@foreach($categories as $category)	
 
-														<li><a style="font-size:14px"
-														 href="{{route('category_dish',['category_id'=>$category->category_id])}}">{{$category->category_name}}</a></li>	
+														<li class="head-dpdn">
+															<a style="font-size:14px" 
+															   href="{{route('category_dish',['category_id'=>$category->category_id])}}">
+															   {{$category->category_name}}
+															</a>
+														</li>	
 
 													@endforeach
 												</ul>
 											</div>
-											<!-- <div class="col-sm-6">
+											{{-- <div class="col-sm-6">
 												 <ul class="multi-column-dropdown">
 												
 													<h6>Food Category</h6> 
@@ -76,7 +82,7 @@
 													<li><a href="menu.html">Special</a></li> 
 												</ul>
 											</div>
-											 -->
+											 --}}
 											<!-- <div class="clearfix"></div> -->
 										</div>
 									</ul>
@@ -93,11 +99,19 @@
 								<li><a href="#">About</a></li> 
 								 
 								<li><a href="#">Contact Us</a></li> 
+								<li>
+									@if(Auth::check())
+										<a href="{{route('cart_show')}}" class="{{($route == 'cart_show')?'active':''}}">
+											Cart  <span class="badge badge-primary Cart-Count">  </span>
+										</a>
+									@endif
+								</li> 
 
 
 
 
-								<li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-user"></i> <span class="caret"></span></a>
+								<li class="w3pages"><a href="#" class="dropdown-toggle {{($route == 'customer_profile' || $route == 'notification' || $route == 'customer_order' )?'active':''}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+									{{-- <i class="fa fa-user"></i> --}}Account <span class="caret"></span></a>
 									<ul class="dropdown-menu" >
 
 
@@ -153,24 +167,24 @@
 							</ul>
 						</div>
 
-					    @if(Auth::check())
-						<div class="cart cart box_1"> 
+					  {{--   @if(Auth::check())
+						<div class="cart cart box_1 active"> 
 
-						<!-- Cart -->
-							
-							<!-- <form action="#" method="post" class="last"> 
+						
+							 		
+							 <form action="#" method="post" class="last"> 
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="display" value="1" />
 								<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
 							</form>
-						-->
+						
 
-							<a href="{{route('cart_show')}}" class="w3view-cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"> </i>
+							<a href="{{route('cart_show')}}" type="btn" class="w3view-cart active"><i class="fa fa-cart-arrow-down " aria-hidden="true"> </i>
 								 <span class="badge badge-fill Cart-Count" style="background-color: transparent;">  </span>
 							</a> 
 
 						</div> 
-						@endif
+						@endif --}}
 
 
 						

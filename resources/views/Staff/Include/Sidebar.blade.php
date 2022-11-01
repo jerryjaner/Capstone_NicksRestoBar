@@ -56,23 +56,30 @@
                   <span class="badge badge-info right" title="Pending Order">{{$Pending_Order}}</span>
                 @endif
             </a>
-           <!--  <ul class="nav nav-treeview">
+         {{--    <ul class="nav nav-treeview">
               <li class="nav-item"> 
                 <a href="{{route('customer_order')}}" class="nav-link">
                   <i class="far fa-edit nav-icon"></i>
                   <p>Manage Orders</p>
                 </a>
               </li>
-            </ul> -->
+            </ul> --}}
+          </li>
+          <li class="nav-item has-treeview ">
+            <a href="{{route('msg_index')}}" class="nav-link {{($route == 'msg_index')?'active':''}} ">
+              <i class="nav-icon fas fa-envelope"></i>
+              <p>
+                 Message Customer
+               
+              </p>
+               
+            </a>
+            
           </li>
 
         
           </li>
-
         </ul>
-
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>

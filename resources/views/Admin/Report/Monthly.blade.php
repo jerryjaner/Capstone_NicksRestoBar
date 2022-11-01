@@ -14,7 +14,7 @@ Monthly Report
 
   $month = array();
   $count = 0;
-  while ($count <= 9) {
+  while ($count <= 10) {
 
 	$month [] = date('M Y', strtotime("-".$count."month"));
 	$count ++;
@@ -22,7 +22,7 @@ Monthly Report
  // echo "<pre>"; print_r($month); die;
 
 	$dataPoints = array(
-		
+		array("y" => $month_count[9], "label" => $month[9]),
 		array("y" => $month_count[8], "label" => $month[8]),
 		array("y" => $month_count[7], "label" => $month[7]),
 		array("y" => $month_count[6], "label" => $month[6]),

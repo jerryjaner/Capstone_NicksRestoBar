@@ -92,7 +92,6 @@
               <p class="sidebarfont">
                   Message Customer
               </p>
-               <span class="badge badge-danger right" title="Soon">Soon</span>
             </a>
           </li>
           <li class="nav-item has-treeview ">

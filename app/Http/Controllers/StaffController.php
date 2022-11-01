@@ -9,6 +9,7 @@ use App\Models\Dish;
 use App\Models\Payment;
 use App\Models\Shipping;
 use App\Models\shippingfee;
+use App\Models\Message;
 use DB;
 use PDF;
 use Illuminate\Support\Facades\Auth;
@@ -121,4 +122,42 @@ class StaffController extends Controller
         // return back()->with('sms','Order Status Updated Successfully');
     }
 
+    public function message_index(){
+
+        $all_msg_send = Message::all();
+        $customers = User::where('role',0)->get();
+        return view('Staff.Message.staff_msg',compact('all_msg_send','customers'));
+    }
+
+    public function message_customer(Request $request){
+
+
+        if($request -> customer_email == Auth::user() -> email){
+
+            $notification = array (
+
+                'message' => 'Cant message your self ',
+                'alert-type' =>'error'
+            );
+
+            return back()->with($notification);
+        }
+  
+
+        $msg_customers = Message::create([             
+          'message' => $request->input('message'),
+          'sender' => $request-> sender,
+          'customer_email' => $request-> customer_email,
+          ]);    
+
+        // return($msg);
+
+        $notification = array (
+
+                'message' => 'Message Sent',
+                'alert-type' =>'success'
+            );
+
+            return back()->with($notification);
+    }
 }

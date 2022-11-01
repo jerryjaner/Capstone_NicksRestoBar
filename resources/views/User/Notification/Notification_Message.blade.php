@@ -5,60 +5,11 @@
 
 @endsection
 @section('content')
-{{-- <style>
-    #example1{
-      font-family: arial ,helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
 
-    }
-    #example1 td, #example1 th {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    #example1 tr:nth-child(even){
-      background-color: #ddd;
-    }
-
-    #example1 th{
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: left;
-      background-color: #dc413a;
-      color:white;
-      text-align: center;
-    } 
-</style> 
-<h3 style="text-align: center; margin-top: 30px; margin-bottom: 20px;" >Notication Message</h3> 
-
-<center>
-<table id="example1" class="table table-bordered table-striped">        
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Sender</th>
-      <th>Message</th>
-      <th>Date Sent</th>
-      <th>Action</th>
-      
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>   
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>  
- </tbody>
-</table>
-</center> --}}
-<br>
 <style type="text/css">
    #example{
-      font-family: arial ,helvetica, sans-serif;
+     /* font-family: arial ,helvetica, sans-serif;*/
+     font-family: poppins;
       border-collapse: collapse;
       margin-top: 10px;
     }
@@ -77,6 +28,7 @@
       background-color: #dc413a;
       color:white;
       text-align: center;
+      font-size: 16px;
     } 
     #example td{
       color: black;
@@ -91,6 +43,7 @@
       margin-left: 23%;
     }
 </style>
+<br>
 <center>
  <table id="example" class="table table-striped table-bordered" style="width:68%">
         <thead>
@@ -117,28 +70,49 @@
                   <td>
 
                     @if ($notication ->  message_status == "unread")
+
                       <b>{{ $notication -> sender }}</b>
+
                     @else
+
                        {{ $notication -> sender }}
+
                     @endif
                    
                   </td>
                   <td>
                       @if ($notication ->  message_status == "unread")
+
                         <b>{{ $notication -> message }}</b>
+
                       @else
-                        {{ $notication -> message }}
+
+                          {{ $notication -> message }}
+
                       @endif
 
                   </td>
                   <td>
                       @if ($notication ->  message_status == "unread")
+
                         <b>{{\Carbon\Carbon::parse($notication -> created_at)->toFormattedDateString() }}</b>
+
                       @else
+
                         {{\Carbon\Carbon::parse($notication -> created_at)->toFormattedDateString() }}
+                        
                       @endif
                   </td>
-                  <td>Marks as read</td>
+                  <td>
+                    
+
+                    @if ($notication ->  message_status == "Read")
+                         <strong>. . .</strong> 
+                    @else
+                        <a href="{{ route('read_message',['id' => $notication -> id]) }}" type="btn" class="btn btn-primary">Marks as read</a>
+                    @endif
+
+                  </td>
                 
               </tr>    
             @endforeach

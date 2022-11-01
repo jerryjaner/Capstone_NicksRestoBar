@@ -56,10 +56,11 @@
   <div class="card my-2">
       <div class="card-header">
         <h3 class="card-title" id ="add_user"><b>Manage User</b></h3>
-
+         
             <button type="button" class="btn btn-success btn-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#add" data-bs-whatever="@fat" id="add_user">
-               Add Staff 
-            </button>
+             Add Staff 
+          </button>
+
       </div>   
 
       <div class="card-body">

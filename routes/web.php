@@ -125,6 +125,10 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
 	Route::post('/updatePayment', [StaffController::class, 'UpdatePayment'])->name('update_payment');
 	Route::post('/updateOrder', [StaffController::class, 'UpdateOrder'])->name('update_order');
 
+	//message
+
+	Route::get('Messages',[StaffController::class,'message_index'])->name('msg_index');
+	Route::post('Message-Customer', [StaffController::class, 'message_customer'])->name('msg_customer');
 
 	});
 
@@ -163,6 +167,7 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
 
  	/* Notification */
  	Route::get('Notification/Message',[UserController::class,'Notification_Msg'])->name('notification');
+ 	Route::get('Message/Read{id}', [UserController::class, 'Mark_as_read'])->name('read_message');
 
    /*  view order */
    Route::post('cancel/order',[UserController::class,'cancel_order'])->name('cancel_customer_order');

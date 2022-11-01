@@ -93,6 +93,21 @@ class UserController extends Controller
       return view('User.Notification.Notification_Message',compact('notification_msg'));
     }
 
+    public function Mark_as_read($id){
+
+      $unread_msg = Message::find($id);
+      $unread_msg->message_status = 'Read';
+      $unread_msg->save();
+
+       $notification = array (
+
+            'message' => 'Message Read',
+            'alert-type' =>'success'
+        );
+
+        return back()->with($notification);
+    }
+
     public function customerOrder(){
 
       if(Auth::check())
@@ -235,10 +250,7 @@ class UserController extends Controller
       else{      
 
           return redirect()->back();
-
       }
-
-
 
     }
 

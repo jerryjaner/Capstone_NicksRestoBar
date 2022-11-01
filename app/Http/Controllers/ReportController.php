@@ -109,7 +109,10 @@ class ReportController extends Controller
         $eight_months = Order::whereYear('created_at',Carbon::now()->year)
              ->whereMonth('created_at',Carbon::now()->submonth(8))->count(); 
 
-         $month_count = array($current_month, $one_month, $two_month, $three_month, $four_month, $five_month, $six_month, $seven_month, $eight_months);
+        $nine_months = Order::whereYear('created_at',Carbon::now()->year)
+             ->whereMonth('created_at',Carbon::now()->submonth(9))->count(); 
+
+         $month_count = array($current_month, $one_month, $two_month, $three_month, $four_month, $five_month, $six_month, $seven_month, $eight_months,$nine_months);
 
       //  dd($month_count);
    

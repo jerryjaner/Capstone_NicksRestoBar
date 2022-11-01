@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h3 class="m-0 text-dark">Dashboard</h3>
           </div><!-- /.col -->
           <div class="col-sm-6">
             {{-- <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
                 <div class="icon">
                   <i class="ion ion-person"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> 
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  --}}
               </div>
             </div>
             <!-- ./col -->
@@ -45,7 +45,7 @@
                 <div class="icon">
                   <i class="ion ion-person"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>   
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}   
               </div>
             </div>
             <!-- ./col -->
@@ -59,7 +59,7 @@
                 <div class="icon">
                   <i class="ion ion-person-stalker"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> 
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  --}}
               </div>
             </div>
             <!-- ./col -->
@@ -73,7 +73,7 @@
                 <div class="icon">
                   <i class="ion ion-ios-people"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
                 <div class="icon">
                   <i class="ion ion-ios-cart"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
               </div>
             </div>
             <!-- ./col -->
@@ -103,7 +103,7 @@
                 <div class="icon">
                   <i class="ion ion-android-time"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+               {{--  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
               </div>
             </div>
             <!-- ./col -->
@@ -117,7 +117,7 @@
                 <div class="icon">
                   <i class="ion ion-ios-close"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+               {{--  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
               </div>
             </div>
             <!-- ./col -->
@@ -131,7 +131,7 @@
                 <div class="icon">
                   <i class="ion ion-load-a"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
                 <div class="icon">
                   <i class="ion ion-android-car"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> 
+               {{--  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  --}}
               </div>
             </div>
 
@@ -162,7 +162,7 @@
                 <div class="icon">
                   <i class="ion ion-android-checkbox-outline"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+               {{--  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>   --}}
               </div>
             </div>
 
@@ -176,7 +176,7 @@
                 <div class="icon">
                   <i class="ion ion-fork"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+                {{-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>   --}}
               </div>
             </div>
 
@@ -191,7 +191,7 @@
                 <div class="icon">
                   <i class="ion ion-pizza"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+               {{--  <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>   --}}
               </div>
             </div> 
       </div>
