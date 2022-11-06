@@ -5,45 +5,6 @@
 
 @endsection
 @section('content')
-
-
-
-
-{{-- 
-            @if(Session::get('added_msg'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                  <strong> {{session::get('added_msg')}}</strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hiddden="true">&times;</span>
-                  </button>
-                </div>
-                
-             @elseif(Session::get('update_msg'))
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                  <strong> {{session::get('update_msg')}}</strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hiddden="true">&times;</span>
-                  </button>
-                </div>
-
-            @elseif(Session::get('error_msg'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong> {{session::get('error_msg')}}</strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hiddden="true">&times;</span>
-                  </button>
-                </div>
-
-            @elseif(Session::get('status_msg'))
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                  <strong> {{session::get('status_msg')}}</strong>
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hiddden="true">&times;</span>
-                  </button>
-                </div>
-
-            @endif --}}
-
             
         <div class="card my-2">
               <div class="card-header">
@@ -91,13 +52,13 @@
                                       </select>
                                   </div>
 
-                                  <div class="form-group">
+                                  {{-- <div class="form-group">
                                     <label> Details</label>
                                     <textarea type="text" name="dish_detail" class="form-control" rows="2"  
                                               placeholder="Enter Details"
                                               required>                 
                                    </textarea>
-                                  </div>
+                                  </div> --}}
 
                                   <div class="form-group">
                                     <label> Price</label>     
@@ -135,7 +96,7 @@
                       <th>#</th>
                       <th>Name</th>
                       <th>Category</th>
-                      <th>Dish Detail</th>
+                      
                       <th>Dish Image</th>
                       <th>Price</th>
                       <th>Status</th>
@@ -150,7 +111,7 @@
                       <td>{{$i++}}</td>
                       <td>{{$dish->dish_name}}</td>
                       <td>{{$dish->category_name}}</td>
-                      <td>{{$dish->dish_detail}}</td>
+                      
                       <td>
                            <img src="{{asset('BackEndSourceFile/dish_image/'.$dish->dish_image)}}" alt="Image" width="90" height="50" class="img-fluid img-thumbnail">
                       </td>
@@ -191,7 +152,7 @@
                         <div class="modal-content">
                           <div class="modal-header text-center">
                             <h5 class="modal-title w-100" id="edit{{$dish->id}}">Update Dish</h5>
-                          <!--   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                               <form action="{{route('update_dish')}}" method="post" enctype="multipart/form-data" onsubmit="btn.disabled = true; return true;">
@@ -213,19 +174,19 @@
 
                                   <div class="form-group">
                                       <label>Select Category</label>             
-                                      <select  name="category_id" class="form-select" required>
+                                      <select  name="category_id" class="form-select"  required>
 
-                                        <option value="" hidden > ---Select Category---</option>
+              
                                           @foreach($categories as $cate)
-                                        <option  value="{{$cate->category_id}}"> {{$cate->category_name}}</option>
+                                              <option  value="{{$cate->category_id}}"> {{$cate->category_name}}</option>
                                           @endforeach
                                       </select>
                                   </div>
 
-                                   <div class="form-group">
+                                  {{--  <div class="form-group">
                                       <label> Detail</label>
                                       <textarea type="text" name="dish_detail" class="form-control" required>{{$dish->dish_detail}}</textarea>
-                                  </div>
+                                  </div> --}}
 
                                   <div class="form-group">
                                     <label> Price</label>                

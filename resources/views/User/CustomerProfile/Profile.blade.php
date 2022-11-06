@@ -40,7 +40,7 @@
 		                 </center><br>
 
 		                <h3 class="profile-username text-center">{{$CustomerProfile -> name}}</h3>
-			            <p class="text-muted text-center"><b>Administator</b></p> <br> <br>
+			            <p class="text-muted text-center"><b>Customer Name</b></p> <br> <br>
 		      
 		           		
 		           		<h4><b>Name:</b> {{$CustomerProfile -> name}} {{$CustomerProfile -> middlename}} {{$CustomerProfile -> lastname}}  </h4><hr>
@@ -85,13 +85,12 @@
 
 										    	<input type="hidden" class="form-control"  name="id" value="{{$CustomerProfile -> id}}">
 										      
-										      	<input class="agile-ltext" type="text" name="name" placeholder="Enter your First Name" required>
+										      	<input class="agile-ltext" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Enter your First Name" required>
 	   	
-										      	<input class="agile-ltext" type="text" name="middlename" placeholder="Enter your Middle Name" required>
 				  									      	
-										      	<input class="agile-ltext" type="text" name="lastname" placeholder="Enter your Last Name" required>
+										      	<input class="agile-ltext" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Enter your Last Name" required>
 
-										      	<input class="agile-ltext" type="text" name="address" placeholder="Address" required>
+										      	<input class="agile-ltext" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
 
 
 										      {{-- 	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email">

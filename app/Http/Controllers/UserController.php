@@ -20,7 +20,27 @@ class UserController extends Controller
 
    public function index(){
    	 //	$categories = Category::where('category_status', 1) -> get();
+
+     
+     // $most_sold = DB::table('dishes')
+     //  ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
+     //  ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
+     //  ->groupBy('dishes.id')
+     //  ->orderBy('total','desc')
+     //  ->take(3)
+     //  ->get();
+
+     //  $top_Products = [];
     
+     //  foreach ($most_sold as $s) {
+       
+     //    $product = Dish::findOrFail($s->id);
+     //    $product -> dish_qty = $s -> total;
+     //    $top_Products[] = $product;
+        
+     //   }
+    
+ 
    		$dishes = Dish::where('dish_status', 1) -> get();
    		return view('User.include.Home',compact('dishes') );
    }
@@ -201,7 +221,7 @@ class UserController extends Controller
 
       $customer_profile = User::find($request->id);
       $customer_profile->name = $request->name;
-      $customer_profile->middlename = $request->middlename;
+      // $customer_profile->middlename = $request->middlename;
       $customer_profile->lastname = $request->lastname;
       $customer_profile -> address = $request -> address;
       // $customer_profile -> email = $request -> email;

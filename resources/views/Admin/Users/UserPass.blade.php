@@ -9,12 +9,12 @@
  <section class="content">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-6">
 	            <!-- About Me Box -->
 	            <div class="card card-primary">
 	              <div class="card-body box-profile">
 	              	<div class="mb-5">
-	                  <h4>Change Password</h4>
+	                  <h4 style="text-align: center;">Change Password</h4>
 	                </div>
 	                <form class="row g-3" action="{{ route('password_update') }}" method="POST" onsubmit="btn.disabled = true; return true;">
 	                	@csrf

@@ -16,8 +16,15 @@ class order extends Model
     	return $this -> belongsTo(User::class)->withDefault();
     }
 
-     public function shipping()
+     public function shippingfee()
+    {
+        return $this -> belongsTo(shippingfee::class)->withDefault();
+    }
+   
+   
+    public function shipping()
     {
     	return $this -> belongsTo(Shipping::class)->withDefault();
     }
+   
 }

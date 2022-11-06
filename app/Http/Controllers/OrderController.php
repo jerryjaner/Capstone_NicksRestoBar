@@ -26,8 +26,7 @@ class OrderController extends Controller
     		->join('payments','orders.id','=', 'payments.order_id')      
     		->select('orders.*', 'users.name','users.middlename','users.lastname' ,'payments.payment_type','payments.payment_status')
     		->get();
-
-        
+            
     	return view('Admin.Order.ManageOrder',data: compact('orders'));
     }
 
@@ -40,7 +39,7 @@ class OrderController extends Controller
         $payment = payment::where('id',$order-> id)->first();
         $OrderD = OrderDetail::where('order_id', $order-> id)->get();
 
-        return view('Admin.Order.ViewOrder',data: compact('order','customer','shipping','payment','OrderD'));
+        return view('Admin.Order.ViewOrder',compact('order','customer','shipping','payment','OrderD'));
     } 
 
     public function view_invoice($id)
@@ -61,7 +60,7 @@ class OrderController extends Controller
             ->select('orders.*', 'users.name','users.middlename','users.lastname','payments.payment_type','payments.payment_status')
             ->get();
 
-        return view('Admin.Order.OrderInvoice',data: compact('order','customer','shipping','payment','OrderD','orders','Shipping_Fee'));
+        return view('Admin.Order.OrderInvoice',compact('order','customer','shipping','payment','OrderD','orders','Shipping_Fee'));
     }
 
     public function delete_order($id)
@@ -96,7 +95,7 @@ class OrderController extends Controller
             ->join('payments','orders.id','=', 'payments.order_id')
             ->select('orders.*', 'users.name','payments.payment_type','payments.payment_status')
             ->get();
-
+            
         
         $pdf = PDF::loadView('Admin.Order.DownloadInvoice',compact('order','customer','shipping','payment','OrderD','orders','Shipping_Fee'));
         return $pdf ->setPaper('short', 'portrait')

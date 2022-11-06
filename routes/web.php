@@ -85,8 +85,8 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth','PreventBackHist
 	/* Shipping Fee */
 	Route::get('/shippingfee',[ShippingFeeController::class,'shippingfee_index'])->name('shipping_fee');
 	Route::post('/add/shippingfee', [ShippingFeeController::class, 'add_shipping_fee'])->name('add_shippingfee');
-	Route::post('shippinfee/edit',[ShippingFeeController::class, 'edit_shippingfee'])->name('shippingfee_edit');
-	Route::get('shippinfee/delete{id}',[ShippingFeeController::class, 'delete_shippingfee'])->name('shippingfee_delete');
+	Route::post('shippinfgee/edit',[ShippingFeeController::class, 'edit_shippingfee'])->name('shippingfee_edit');
+	Route::get('shippingfee/delete{id}',[ShippingFeeController::class, 'delete_shippingfee'])->name('shippingfee_delete');
 
 	/* For the payment update */
 	Route::post('/update/payment', [OrderController::class, 'update'])->name('order_update');
@@ -159,6 +159,7 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
 	Route::get('/checkOut/payment', [CheckOutController::class, 'payment'])->name('Checkout_payment');
 	Route::post('/checkOut/NewOrder', [CheckOutController::class, 'order'])->name('new_order');
 	Route::get('/checkoutComplete', [CheckOutController::class, 'complete'])->name('order_complete');
+	
  	
 
    /* shipping */

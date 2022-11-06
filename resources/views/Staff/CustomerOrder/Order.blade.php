@@ -38,7 +38,7 @@
                     <tr>
                       <th style="text-align: center;">#</th>
                       <th style="text-align: center;">Customer Name</th>
-                      <th style="text-align: center;">Order Price Total</th>
+                      <th style="text-align: center;">TotalOrder Price</th>
                       <th style="text-align: center;">Order Status</th>
                       <th style="text-align: center;">Order Date</th>
                       <th style="text-align: center;">Payment Type</th>
@@ -96,8 +96,9 @@
 
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$order->name}} {{$order->middlename}} {{$order -> lastname}}</td>
-                    <td>{{$order->order_total}}</td>
+                    <td>{{$order-> name}} {{$order -> lastname}}</td>
+                    <td>{{$order-> order_total}}</td>
+                    <td>{{$order-> order_shippingfee}}</td>
                     <td>
                       @if($order->order_status =='pending')
 

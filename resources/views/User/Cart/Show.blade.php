@@ -14,19 +14,16 @@
 		</ol>
 	</div>
 
-	<div class="container" style="margin-top: 10px;">
-		
-		<h3><b>Note:</b></h3>
-		
-	  
+	<div class="container" style="margin-top: 5px;">
+		@foreach($ShipFees as $ShipFee )
+		<h3><b>Note:</b></h3> 
 		<ul style="margin-left: 50px;">	
-			@foreach($ShipFees as $ShipFee )
-			    <li style="color: red; font-size: 14px;"><b>Cash on Delivery (COD) have Addional {{$ShipFee -> fee}} pesos for the Shipping Fee </b> </li>
-		   	@endforeach
+		
+		    <li style="color: red; font-size: 14px;">
+		    	<b>Cash on Delivery (COD) have Addional {{$ShipFee -> fee}} pesos for the Shipping Fee </b>
+		    </li>	   	
 		</ul>
-	    
-
-
+		@endforeach
 	</div>
 
 <div class="products">

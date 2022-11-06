@@ -13,41 +13,6 @@
 
 </style>
 
-     {{--    @if(Session::get('sms'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong> {{session::get('sms')}}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hiddden="true">&times;</span>
-              </button>
-            </div>
-
-         @elseif(Session::get('delete_msg'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong> {{session::get('delete_msg')}}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hiddden="true">&times;</span>
-              </button>
-            </div>
-
-        @elseif(Session::get('order_status_msg'))
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-              <strong> {{session::get('order_status_msg')}}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hiddden="true">&times;</span>
-              </button>
-            </div>
-
-        @elseif(Session::get('payment_status_msg'))
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-              <strong> {{session::get('payment_status_msg')}}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hiddden="true">&times;</span>
-              </button>
-            </div>
-
-
-        @endif
- --}}
  
      
           <div class="card my-2">
@@ -61,7 +26,8 @@
                     <tr>
                       <th>#</th>
                       <th>Customer Name</th>
-                      <th>Order Price Total</th>
+                      <th>Total Order Price</th>
+                      <th>Shipping Fee</th>
                       <th>Order Status</th>
                       <th>Order Date</th>
                       <th>Payment Type</th>
@@ -125,8 +91,9 @@
 
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$order->name}} {{$order->middlename}} {{$order -> lastname}}</td>
-                    <td>{{$order->order_total}}</td>
+                    <td>{{$order-> name}}  {{$order -> lastname}}</td>
+                    <td>{{$order-> order_total}}</td>
+                    <td>{{$order -> order_shippingfee }}</td>
                     <td>
 
                       @if($order->order_status =='pending')

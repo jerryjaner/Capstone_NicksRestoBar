@@ -123,7 +123,7 @@ class DishController extends Controller
         $dish = Dish::find($request -> id);
     	$dish -> dish_name =   $request -> dish_name;
     	$dish -> category_id = $request -> category_id;
-    	$dish -> dish_detail = $request -> dish_detail;
+    	// $dish -> dish_detail = $request -> dish_detail;
         $dish -> full_price = $request -> full_price;
          
         // for the image of the dish //

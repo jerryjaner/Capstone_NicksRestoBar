@@ -34,7 +34,8 @@
 													Cash on Delivery (COD)
 												</th>
 												<td>
-													<input type="radio" name="payment_type" value="Cash_on_Delivery" required>
+													<input  type="radio" name="payment_type" value="Cash_on_Delivery" required>
+
 												</td>
 											</tr>
 

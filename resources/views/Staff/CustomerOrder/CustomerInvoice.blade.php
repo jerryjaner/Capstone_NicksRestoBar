@@ -146,12 +146,9 @@
 								<tbody>
 									
 									@if($payment -> payment_type == 'Cash_on_Delivery')
-										<tr>
+										<tr>	
+											  <td>Shipping Fee: {{$order -> order_shippingfee}}</td>
 											
-											@foreach($Shipping_Fees as $deliveryfee)
-											    <td>Shipping Fee: {{$deliveryfee -> fee}}</td>
-											@endforeach
-
 										</tr>
 										@if(count($Shipping_Fees) == 0)
 											<tr>	
@@ -161,10 +158,9 @@
 											</tr>
 										@else
 											<tr>
-												@foreach($Shipping_Fees as $deliveryfee)
-												@php($total = $sum + $deliveryfee -> fee)
-												    <td>Total Amount: {{$total}}</td>
-												@endforeach
+											
+												@php($total = $sum + $order -> order_shippingfee)
+												 <td>Total Amount: {{$total}}</td>										
 											</tr>
 											
 										@endif

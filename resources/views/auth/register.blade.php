@@ -49,7 +49,7 @@
             </span>
         @enderror
 
-        <div class="input-group mb-3">
+        {{-- <div class="input-group mb-3">
           <input id="middlename" type="text" placeholder="Middlename" class="form-control @error('middlename') is-invalid @enderror" name="middlename"   onkeyup="letterOnly(this)">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -61,7 +61,7 @@
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-        @enderror
+        @enderror --}}
 
         <div class="input-group mb-3">
           <input id="lastname" type="text" placeholder="Lastname" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus autofocus onkeyup="letterOnly(this)" >

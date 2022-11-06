@@ -6,6 +6,7 @@ use App\Models\order;
 use App\Models\OrderDetail;
 use App\Models\category;
 use App\Models\Dish;
+use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -27,6 +28,19 @@ class AdminController extends Controller
       $staff = User::where('role','2')->count();
       $customers = User::where('role','0')->count();
       $newuser = User::where('created_at', '>', today())->count();
+
+
+
+      // $most_sold = DB::table('dishes')
+      // ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
+      // ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
+      // ->groupBy('dishes.id')
+      // ->orderBy('total','desc')
+      // ->take(10)
+      // ->get();
+
+
+
       return view('Admin.Home.index', compact('categories','dishes','admin','staff','customers','orders','newuser','pending_orders','cancelled_orders','OnProcess_orders','delivered_orders','out_orders'));  
     }
   
@@ -49,7 +63,7 @@ class AdminController extends Controller
         $user = new User();
 
         $user -> name = $request-> name;
-        $user -> middlename = $request-> middlename;
+        // $user -> middlename = $request-> middlename;
         $user -> lastname = $request-> lastname;
         $user -> address = $request-> address;
         $user -> email = $request-> email;
@@ -78,18 +92,18 @@ class AdminController extends Controller
 
     public function profile_update(Request $request){
 
-       $validated = $request->validate([
-        'email' => 'required|email|string|unique:users|max:255',
+      //  $validated = $request->validate([
+      //   'email' => 'required|email|string|unique:users|max:255',
 
-      ]);
+      // ]);
 
 
     	$profile = User::find($request->id);
     	$profile->name = $request->name;
-    	$profile->middlename = $request->middlename;
+    	// $profile->middlename = $request->middlename;
     	$profile->lastname = $request->lastname;
     	$profile -> address = $request -> address;
-      $profile -> email = $request -> email;
+      // $profile -> email = $request -> email;
     	$profile->save();
 
         $notification = array (
@@ -135,6 +149,8 @@ class AdminController extends Controller
       }
 
     }
+
+
 
 
     

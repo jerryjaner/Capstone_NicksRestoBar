@@ -70,6 +70,53 @@
 			</div>
 		</div>
 	</div>
+   
+    {{-- most sold --}}
+
+ {{--    <div class="products">	 
+		<div class="container">
+			<div class="col-md-12 product-w3ls-right"> 
+				<div class="product-top">
+					<center><h4>Most Selling Food</h4></center>			
+					<div class="clearfix"> </div>
+				</div>
+				<div class="products-row">
+					@foreach($top_Products as $top_Product)
+					@php
+						$top_Product['image'] = explode('|', $top_Product -> dish_image);
+						$images = $top_Product -> dish_image[0];	
+
+					@endphp
+					
+					
+					<div class="col-xs-6 col-sm-4 product-grids">
+						<div class="flip-container">
+							<div class="flipper agile-products">
+								<div class="front"> 
+
+									<img src="{{asset('BackEndSourceFile/dish_image/'.$top_Product->dish_image)}}" 
+									style="height: 200px; width:400px; border: none;" class="img-responsive" alt="img">
+
+									<div class="agile-product-text">  
+										<h5>{{ $top_Product -> dish_name }}</h5>	
+									</div> 
+								</div>
+								<div class="back">	
+									<h6 style="margin-top: 50px;">₱{{$top_Product -> full_price}}</h6>
+								</div>
+							</div>
+						</div> 
+					</div>
+					
+
+					@endforeach
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div> --}}
+    {{-- end of most sold --}}
+
 	<!-- //order --> 
 	<!-- dishes -->
 	<div class="w3agile-spldishes">
@@ -100,7 +147,7 @@
 										<img class="lazyOwl" src="{{asset('BackEndSourceFile/dish_image/'.$dish->dish_image)}}" style="height: 190px; width:286px; border: 1px solid white;" title="Our latest gallery" alt=""/>
 										<div class="agile-dish-caption">
 											<h4>{{$dish -> dish_name}}</h4>
-											<{{-- span>{{$dish -> dish_detail}}</span> 	 --}}
+											{{-- <span>{{$dish -> dish_detail}}</span> 	 --}}
 									    </div>
 									</a>
 

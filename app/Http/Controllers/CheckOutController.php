@@ -6,6 +6,7 @@ use App\Models\OrderDetail;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\Shipping;
+use App\Models\shippingfee;
 use Cart;
 use Session;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +19,13 @@ class CheckOutController extends Controller
     {
         $CartDish = Cart::content();
 
+
         if(Auth::check())
         {
             // check if the cart is empty or not. If empty the user redirect back
             if(count($CartDish) > 0){
-
-                 return view('User.CheckOut.CheckOutField');
+                 $ShipFees =  shippingfee::all();
+                 return view('User.CheckOut.CheckOutField',compact('ShipFees') );
             }
             else{
 
@@ -53,13 +55,17 @@ class CheckOutController extends Controller
 
     	if($paymentType == 'Cash_on_Delivery'){
 
-
-    		$order = new Order();
-
-    		$order-> user_id = Auth::user()-> id;
-    		$order-> shipping_id = Session::get('shipping_id');
-    		$order-> order_total = Session::get('sum');
-    		$order -> save();
+             $ShipFees =  shippingfee::all();
+             foreach ($ShipFees as $sf) {
+                 
+                $order = new Order();
+                $order-> user_id = Auth::user()-> id;
+                $order-> order_shippingfee = $sf -> fee;
+                $order-> shipping_id = Session::get('shipping_id');  
+                $order-> order_total = Session::get('sum');
+                $order -> save();
+             }
+    		
 
     		$payment = new payment();
     		$payment ->order_id = $order -> id;
@@ -88,12 +94,12 @@ class CheckOutController extends Controller
                 'alert-type' =>'success'
             );
 
-            return redirect('/')->with($notification);
+            
 
-     	   //  Session::flash('success', 'Your order has been successfully processed.');
-     	    // return redirect('checkoutComplete')->with('sms','Your order has been successfully processed.');
+         return redirect('/')->with($notification);
 
-
+           
+     	
 
     	}
     	elseif($paymentType == 'Cash_on_Pickup'){
@@ -134,6 +140,8 @@ class CheckOutController extends Controller
                 'message' => 'Your order has been Successfully processed',
                 'alert-type' =>'success'
             );
+
+            
             return redirect('/')->with($notification);
 
            //  return redirect('checkoutComplete')->with('sms','Your order has been successfully processed.');
@@ -141,6 +149,7 @@ class CheckOutController extends Controller
 
     	}
     }
+  
 
     public function complete(){
 
@@ -154,4 +163,6 @@ class CheckOutController extends Controller
          }
         	
     }
+
+
 }

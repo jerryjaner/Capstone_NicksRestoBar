@@ -7,14 +7,11 @@ Monthly Report
 @section('content')
 
 
-
- 
-
 <?php
 
   $month = array();
   $count = 0;
-  while ($count <= 10) {
+  while ($count <= 12) {
 
 	$month [] = date('M Y', strtotime("-".$count."month"));
 	$count ++;
@@ -22,6 +19,9 @@ Monthly Report
  // echo "<pre>"; print_r($month); die;
 
 	$dataPoints = array(
+
+		array("y" => $month_count[11], "label" => $month[11]),
+		array("y" => $month_count[10], "label" => $month[10]),
 		array("y" => $month_count[9], "label" => $month[9]),
 		array("y" => $month_count[8], "label" => $month[8]),
 		array("y" => $month_count[7], "label" => $month[7]),
@@ -31,7 +31,7 @@ Monthly Report
 	    array("y" => $month_count[3], "label" => $month[3]),
 	    array("y" => $month_count[2], "label" => $month[2]),
 		array("y" => $month_count[1], "label" => $month[1]),
-		array("y" => $month_count[0], "label" => $month[0])
+		array("y" => $month_count[0], "label" => $month[0]),
 
 
 	// $dataPoints = array(
@@ -71,7 +71,7 @@ chart.render();
 }
 </script>
 
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer"  style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
           
 @endsection

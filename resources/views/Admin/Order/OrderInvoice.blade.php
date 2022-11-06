@@ -1,3 +1,4 @@
+
 @extends('Admin.master')
 @section('title')
 
@@ -142,12 +143,9 @@
 								<tbody>
 
 									@if($payment -> payment_type == 'Cash_on_Delivery')
-										<tr >
+										<tr>
 											
-											@foreach($Shipping_Fee as $delivery_fee)
-											    <td>Shipping Fee: {{$delivery_fee -> fee}}</td>
-											@endforeach
-
+											 <td>Shipping Fee: {{$order -> order_shippingfee}}</td>
 										</tr>
 										@if(count($Shipping_Fee) == 0)
 											<tr>	
@@ -157,10 +155,10 @@
 											</tr>
 										@else
 											<tr>
-												@foreach($Shipping_Fee as $delivery_fee)
-												@php($total = $sum + $delivery_fee -> fee)
+												
+												@php($total = $sum + $order -> order_shippingfee)
 												    <td>Total Amount: {{$total}}</td>
-												@endforeach
+												
 											</tr>
 											
 										@endif

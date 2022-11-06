@@ -210,20 +210,18 @@
 						<td></td>
 						<td></td>
 						<td>
-							@foreach($Shipping_Fees as $deliveryfee)
+						
 							
-								Shipping Fee: {{$deliveryfee -> fee}}<br> 
+								Shipping Fee: {{$order -> order_shippingfee}}<br> 
 	
-							@endforeach
+							
 							@if(count($Shipping_Fees) == 0)
 								Total Amount: {{$sum}}<br> 
 							@else
-								@foreach($Shipping_Fees as $deliveryfee)
-								@php($totalAmount = $sum + $deliveryfee -> fee)
+							
+								@php($totalAmount = $sum + $order -> order_shippingfee)
 
 								   Total Amount: {{$totalAmount}}<br>
-
-								@endforeach
 
 							@endif
 						</td>										

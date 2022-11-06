@@ -15,7 +15,7 @@ class CreateShippingfeesTable extends Migration
     {
         Schema::create('shippingfees', function (Blueprint $table) {
             $table->id();
-            $table->float('fee',total:10, places:2);
+            $table->float('fee',total:10, places:2)->nullable();
             $table->timestamps();
         });
     }

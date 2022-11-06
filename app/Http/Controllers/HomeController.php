@@ -7,6 +7,7 @@ use App\Models\category;
 use App\Models\User;
 use App\Models\Dish;
 use App\Models\order;
+use DB;
 
 class HomeController extends Controller
 {
@@ -55,7 +56,25 @@ class HomeController extends Controller
                 //return view('User.include.Home',data: compact('dishes') );
 
                //  return route('user_dashboard');
-                 return view('User.include.Home',data: compact('dishes'));
+             // $most_sold = DB::table('dishes')
+             //  ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
+             //  ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
+             //  ->groupBy('dishes.id')
+             //  ->orderBy('total','desc')
+             //  ->take(3)
+             //  ->get();
+
+             //  $top_Products = [];
+            
+             //  foreach ($most_sold as $s) {
+               
+             //    $product = Dish::findOrFail($s->id);
+             //    $product -> dish_qty = $s -> total;
+             //    $top_Products[] = $product;
+                
+             //   }
+    
+                 return view('User.include.Home',compact('dishes'));
                  
         }
 

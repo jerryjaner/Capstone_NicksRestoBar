@@ -10,9 +10,9 @@
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
+    <div style="text-align: center;">
+      <strong>  2022 <a href="#" style="text-decoration: none;">Nick's Resto Bar</a>.</strong> All rights reserved.
     </div>
     <!-- Default to the left -->
-    <strong>  2022 <a href="#" style="text-decoration: none;">Nick's Resto Bar</a>.</strong> All rights reserved.
+   
   </footer>

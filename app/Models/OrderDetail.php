@@ -10,16 +10,17 @@ class OrderDetail extends Model
     use HasFactory;
   
   // protected $primaryKey = 'id';
-
+    public function dish()
+    {
+        return $this -> belongsTo(Dish::class)->withDefault();
+    }
+    
     public function order()
     {
     	return $this -> belongsTo(order::class)->withDefault();
     }
 
-    public function dish()
-    {
-    	return $this -> belongsTo(Dish::class)->withDefault();
-    }
-
+    
+   
    
 }

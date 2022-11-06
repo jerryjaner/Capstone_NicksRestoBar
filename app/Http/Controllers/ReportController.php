@@ -18,7 +18,7 @@ class ReportController extends Controller
     public function client_report()
     {
         $users = user::all();
-        return view('Admin.Report.ClientReport', data: compact(var_name:'users'));   
+        return view('Admin.Report.ClientReport', compact('users'));   
        
     }
 
@@ -55,7 +55,7 @@ class ReportController extends Controller
 
        // dd($orders);
 
-        return view('Admin.Report.Month',data: compact('orders'));
+        return view('Admin.Report.Month',compact('orders'));
 
          // $pdf = PDF::loadView('Admin.Report.filter',compact('orders'));
          // return $pdf->stream('filtered.pdf');
@@ -111,8 +111,15 @@ class ReportController extends Controller
 
         $nine_months = Order::whereYear('created_at',Carbon::now()->year)
              ->whereMonth('created_at',Carbon::now()->submonth(9))->count(); 
+            
+        $ten_months = Order::whereYear('created_at',Carbon::now()->year)
+             ->whereMonth('created_at',Carbon::now()->submonth(10))->count(); 
 
-         $month_count = array($current_month, $one_month, $two_month, $three_month, $four_month, $five_month, $six_month, $seven_month, $eight_months,$nine_months);
+        $eleven_months = Order::whereYear('created_at',Carbon::now()->year)
+             ->whereMonth('created_at',Carbon::now()->submonth(11))->count(); 
+
+
+         $month_count = array($current_month, $one_month, $two_month, $three_month, $four_month, $five_month, $six_month, $seven_month, $eight_months, $nine_months, $ten_months, $eleven_months);
 
       //  dd($month_count);
    

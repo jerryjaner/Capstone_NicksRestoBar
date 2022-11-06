@@ -83,29 +83,14 @@
                           <label> First Name</label>
                           <input type="text" class="form-control" name="name" 
                                  placeholder="Enter First Name" 
-                                 pattern="[A-Za-z \s*]+$"
-                                 oninvalid="this.setCustomValidity('Letters only are Allowed and also this is required to fill up')"
-                                 oninput="this.setCustomValidity('')" 
                                  required>
                         </div>
 
-                        <div class="form-group">
-                          <label> Middle Name</label>
-                          <input type="text" class="form-control" name="middlename"
-                                 placeholder="Enter Middle Name" 
-                                 pattern="[A-Za-z \s*]+$"
-                                 oninvalid="this.setCustomValidity('Letters only are Allowed and also this is required to fill up')"
-                                 oninput="this.setCustomValidity('')" 
-                                 required>
-                        </div>
-
+                       
                         <div class="form-group">
                           <label> Last Name</label>
                           <input type="text" class="form-control" name="lastname"
                                  placeholder="Enter Last Name" 
-                                 pattern="[A-Za-z \s*]+$"
-                                 oninvalid="this.setCustomValidity('Letters only are Allowed and also this is required to fill up')"
-                                 oninput="this.setCustomValidity('')" 
                                  required>
                         </div>
 

@@ -147,10 +147,10 @@
 
     @if(Session('sms'))
        <!--  <div class="alert alert-default alert-dismissible fade show" role="alert"> -->
-        <ul>
-          <li style="color: red;">{{ Session('sms')}}</li>
-        </ul>
-          <p></p>
+        {{-- <ul>
+          <li style="color: red;"></li>
+        </ul> --}}
+          <p style="text-align: center; color: red; font-size: 14px;">{{ Session('sms')}}</p>
        <!--  </div> -->
     @endif
 
