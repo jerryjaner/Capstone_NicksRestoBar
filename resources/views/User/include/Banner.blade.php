@@ -96,9 +96,9 @@
 									</ul>
 								</li> -->
 
-								<li><a href="#">About</a></li> 
+								
 								 
-								<li><a href="#">Contact Us</a></li> 
+								<li><a href="{{ route('Contact_us') }}" class="{{($route == 'Contact_us')?'active':''}}">Contact Us</a></li> 
 								<li>
 									@if(Auth::check())
 										<a href="{{route('cart_show')}}" class="{{($route == 'cart_show')?'active':''}}">

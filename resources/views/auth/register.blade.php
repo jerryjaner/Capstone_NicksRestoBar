@@ -32,7 +32,7 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register Account</p>
 
-      <form action="{{ route('register')}}" method="post">
+      <form action="{{ route('register')}}" method="post" onsubmit="btn.disabled = true; return true;">
          @csrf
 
         <div class="input-group mb-3">
@@ -144,7 +144,7 @@
           </div> -->
           <!-- /.col -->
           <div class="md-3">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" name="btn" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>

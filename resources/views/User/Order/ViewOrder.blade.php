@@ -29,7 +29,10 @@
       background-color: #dc413a;
       color:white;
     } 
-</style> 
+    
+
+    </style>
+
 <h3 style="text-align: center; margin-top: 30px; margin-bottom: 20px;" >View Order</h3> 
 
 <center>
@@ -130,21 +133,21 @@
                           <form action="{{route('cancel_customer_order')}}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{$order->id}}">
-
-                            <h2 style="text-align: center; font-family: Arial sans-serif;  color: black; ">
+                           
+                            <h2 style="text-align: center; color: black; ">
                                <b> Are you sure ?</b>
                             </h2>
                             <br>
 
-                            <h4 style="text-align: center; font-family: Arial sans-serif; color: black;">  You want to <b> Cancel </b> your order </h4> 
+                            <h4 style="text-align: center; color: black;">  You want to <b><span style="color: red;">Cancel</span></b> your order </h4> 
                             <br>
                             <br>
 
                           <center>   
                             <div>
-                              <button type="button" class="btn btn-danger"  data-dismiss="modal" style="margin-right: 25px; width: 100px; outline: none;">No</button> 
+                              <button type="button" class="btn btn-danger"  data-dismiss="modal" style="margin-right: 10px; width: 100px; outline: none;">No</button> 
                         
-                              <button type="submit" name="btn" class="btn btn-primary" style="margin-left: 25px; width: 100px; outline: none;">Yes</button>
+                              <button type="submit" name="btn" class="btn btn-primary" style="margin-left: 10px; width: 100px; outline: none;">Yes</button>
                             </div>  
                           </center>  
 

@@ -46,7 +46,7 @@
     			                    <input type="number" class="form-control" name="fee" min="0" max="1000" required>           
 					                  </div>
                             <div class="modal-footer">
-                              {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>  --}}
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button> 
                               <button class="btn btn-primary" type="submit" name="btn">Submit</button>
                             </div>
 
@@ -112,7 +112,7 @@
                                
                                                       
                                 <div class="modal-footer">
-                                  {{-- <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>  --}}
+                                  <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> 
                                   <button  type="submit" class="btn btn-primary" name="btn">Update</button>
                                 </div>
                             </form>

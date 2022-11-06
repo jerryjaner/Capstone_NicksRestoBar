@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use View;
 use App\Models\category;
+use App\Models\Dish;
 use App\Models\order;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,6 +40,16 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories',Category::where('category_status', 1) ->get());
 
         });
+
+         View::composer('User.include.Dish', function($view)
+        {
+
+            $view->with('dishes',Dish::where('dish_status', 1) ->get());
+
+        });
+
+
+       
 
         // View::composer('Admin.include.sidebar', function($view)
         // {

@@ -53,6 +53,12 @@ class UserController extends Controller
 
       return view('User.include.Dish',compact('categoryDish') );
    }
+   
+   public function Contact_us(){
+
+    return view('User.include.Contact_Us');
+
+   }
 
    // For the Shipping //
    public function shipping(){

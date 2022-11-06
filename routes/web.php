@@ -146,6 +146,9 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
 	Route::get('auth/google',[GoogleLoginController::class,'redirect'])->name('google_login');
 	Route::get('auth/google/call-back',[GoogleLoginController::class, 'callback']);
 
+	/*to contact us*/
+	Route::get('Contact-Us', [UserController::class,'Contact_us'])->name('Contact_us');
+
 
 	/* Cart Route */
 	Route::post('/AddCart', [CartController::class, 'insert'])->name('add_to_cart');
@@ -160,7 +163,6 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
 	Route::post('/checkOut/NewOrder', [CheckOutController::class, 'order'])->name('new_order');
 	Route::get('/checkoutComplete', [CheckOutController::class, 'complete'])->name('order_complete');
 	
- 	
 
    /* shipping */
  	Route::get('/shipping', [UserController::class, 'shipping']);

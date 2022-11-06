@@ -79,7 +79,6 @@ class AdminController extends Controller
 
         return redirect()-> back()->with($notification);
 
-
         // return back()->with('added_msg','New User Added Sucessfully');
       
     }
@@ -87,7 +86,7 @@ class AdminController extends Controller
     public function profile(){
     
          $admin = User::find(Auth::id());
-        return view('Admin.Users.UserProfile', data: compact(var_name:'admin')); 
+        return view('Admin.Users.UserProfile',compact(var_name:'admin')); 
     }
 
     public function profile_update(Request $request){
@@ -127,7 +126,6 @@ class AdminController extends Controller
         'oldpassword' => 'required|password',
         'password' => 'required|confirmed|min:8|max:255',
         'password_confirmation' => 'required',
-
 
       ]);
 

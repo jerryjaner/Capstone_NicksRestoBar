@@ -24,7 +24,7 @@
 	              <div class="card-body box-profile">
 	                <div class="text-center">
 	                  <img class="profile-user-img img-fluid img-circle"
-	                      src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg"
+	                      {{-- src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg" --}}
 	                       alt="User profile picture">
 	                </div>
 
@@ -87,7 +87,7 @@
 									  
 									  <div class="col-12">
 				                        <button type="submit" name="btn" class="btn btn-primary float-right">Update Profile</button>
-				                        {{-- <button id="userfont" type="button" class="btn btn-secondary float-right mr-1" data-bs-dismiss="modal">Close</button>  --}}
+				                        <button id="userfont" type="button" class="btn btn-secondary float-right mr-1" data-bs-dismiss="modal">Close</button> 
 									  </div>
 									</form>
 				                </div>

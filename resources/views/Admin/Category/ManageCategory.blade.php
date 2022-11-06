@@ -18,7 +18,6 @@
     @enderror
 
 
-
   <div class="card my-2">
     <div class="card-header">
       <h3 class="card-title" id="messagefont"><b>Manage Category</b></h3>
@@ -60,12 +59,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-  {{-- 
-                      <button type="submit"  name="btn" class="btn btn-primary">
-                      Submit</button> 
-   --}}
+                      <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
                       <button class="btn btn-primary" type="submit" name="btn">Submit</button>
-                 
                   </div>
               
               </form>
@@ -158,12 +153,8 @@
                        </div>
 
                        <div class="modal-footer">
-                       {{-- <button id="userfont" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  --}}
-                       {{--  <button type="submit" class="btn btn-primary" name="btn" >Update</button> --}}
-
-                        <button class="btn btn-primary" type="submit" name="btn">Submit</button>
-                          
-                     
+                        <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+                        <button class="btn btn-primary" type="submit" name="btn">Submit</button>    
                       </div>
 
                     </form>

@@ -81,11 +81,8 @@
                                   </div>
 
                                   <div class="modal-footer">
-                                    {{--  <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  --}}
+                                     <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                      <button  type="submit" name="btn" class="btn btn-primary"> Submit</button>
-                                   {{--  <button class="btn btn-primary" type="submit" name="btn" id="submit" onclick="loading()" >
-                                     <i class="fas fa-spinner fa-spin" style="display: none;"></i><span class="btn-text">Submit</span>
-                                    </button> --}}
                                   </div>
                             </form>
                           </div>
@@ -207,11 +204,8 @@
                                   </div>
                                      <br>
                                   <div class="modal-footer">
-                                    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  --}}
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
                                     <button type="submit" class="btn btn-primary" name="btn">Update</button>
-                                    {{-- <button class="btn btn-primary" type="submit" name="btn" id="submit" onclick="loading()" >
-                                     <i class="fas fa-spinner fa-spin" style="display: none;"></i><span class="btn-text">Update</span>
-                                    </button> --}}
                                   </div>
                               </form>
                            </div>
