@@ -82,7 +82,7 @@
                         <div class="form-group">
                           <label> First Name</label>
                           <input type="text" class="form-control" name="name" 
-                                 placeholder="Enter First Name" 
+                                 placeholder="First Name" 
                                  required>
                         </div>
 
@@ -90,21 +90,38 @@
                         <div class="form-group">
                           <label> Last Name</label>
                           <input type="text" class="form-control" name="lastname"
-                                 placeholder="Enter Last Name" 
+                                 placeholder="Last Name" 
+                                 required>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Purok</label>
+                          <input type="text" class="form-control" name="purok"
+                                 placeholder="Purok No." 
                                  required>
                         </div>
 
                         <div class="form-group">
                           <label> Address</label>
                           <input type="text" class="form-control" name="address"
-                                 placeholder="Enter Address" 
+                                 placeholder="Address" 
+                                 required>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Phone Number</label>
+                          <input type="tel" class="form-control" name="phone_number"
+                                 placeholder="Ex: 09805******" 
+                                 pattern="[0-9]{11}" 
+                                 min="11"
+                                 max="11" 
                                  required>
                         </div>
 
                         <div class="form-group">
                           <label> Email</label>
                           <input type="email" class="form-control" name="email" 
-                                 placeholder="Enter Your Email Address">
+                                 placeholder="Email Address">
                        
                         </div>
 
@@ -112,7 +129,7 @@
                         <div class="form-group">
                           <label> Password</label>
                           <input type="Password" class="form-control" name="password" 
-                                 placeholder="Enter Password" 
+                                 placeholder="Password" 
                                  required>
                         </div>
 
@@ -143,7 +160,9 @@
           <tr>
             <th>#</th>
             <th>Full Name</th>
+            <th>Purok</th>
             <th>Address</th>
+            <th>Phone Number</th>
             <th>Email</th>
             <th>Logged in Using</th>
             <th>Role</th>        
@@ -157,6 +176,7 @@
           <tr>
             <td>{{$i++}}</td>
             <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+            <td>{{ $user -> purok }}</td>
             <td>
 
                @if($user->address == null)
@@ -169,6 +189,7 @@
                 @endif
                 
             </td>
+            <td>{{ $user -> phone_number }}</td>
             
             <td>{{$user -> email}}</td>
             

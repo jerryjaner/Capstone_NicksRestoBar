@@ -27,7 +27,7 @@ class OrderController extends Controller
     		->select('orders.*', 'users.name','users.middlename','users.lastname' ,'payments.payment_type','payments.payment_status')
     		->get();
             
-    	return view('Admin.Order.ManageOrder',data: compact('orders'));
+    	return view('Admin.Order.ManageOrder',compact('orders'));
     }
 
     public function View_Order($id) 
@@ -53,7 +53,6 @@ class OrderController extends Controller
         $OrderD = OrderDetail::where('order_id', $order-> id)->get();
         $Shipping_Fee = shippingfee::all();
             
-
         $orders = DB::table('orders')
             ->join('users','orders.user_id','=', 'users.id')
             ->join('payments','orders.id','=', 'payments.order_id')

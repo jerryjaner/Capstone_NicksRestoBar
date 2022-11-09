@@ -65,7 +65,9 @@ class AdminController extends Controller
         $user -> name = $request-> name;
         // $user -> middlename = $request-> middlename;
         $user -> lastname = $request-> lastname;
+        $user -> purok = $request-> purok;
         $user -> address = $request-> address;
+        $user -> phone_number = $request-> phone_number;
         $user -> email = $request-> email;
         $user -> password = bcrypt($request-> password);
         $user -> role = 2;
@@ -101,7 +103,9 @@ class AdminController extends Controller
     	$profile->name = $request->name;
     	// $profile->middlename = $request->middlename;
     	$profile->lastname = $request->lastname;
-    	$profile -> address = $request -> address;
+    	$profile -> purok = $request -> purok;
+      $profile -> address = $request -> address;
+      $profile -> phone_number = $request -> phone_number;
       // $profile -> email = $request -> email;
     	$profile->save();
 

@@ -17,20 +17,21 @@ class ReportController extends Controller
 {
     public function client_report()
     {
-        $users = user::all();
+        $users = user::where('role', 0)->get();
         return view('Admin.Report.ClientReport', compact('users'));   
        
     }
 
     public function download_client()
     {
-    	$users = user::all();
+    	$users = user::where('role', 0)->get();
     	$pdf = PDF::loadView('Admin.Report.DownloadClientReport',compact('users'));
         return $pdf->stream('DownloadClientReport.pdf');
     }
 
     public function month()
     {
+        
          $orders = DB::table('orders')
          ->join('users','orders.user_id','=', 'users.id')
          ->select('orders.*', 'users.name','users.middlename','users.lastname')

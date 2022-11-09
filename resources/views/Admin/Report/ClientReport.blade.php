@@ -31,7 +31,9 @@ Report of Customer
                     <tr>
                       <th>#</th>
                       <th>Full Name</th>
+                      <th>Purok No.</th>
                       <th>Address</th>
+                      <th>Phone Number</th>
                       <th>Email</th>
                       <th>Date</th>
                       <th>Logged in Using</th>
@@ -43,10 +45,11 @@ Report of Customer
                   @php($i = 1)
                   @foreach($users  as $user)
 
-                    @if($user -> role == 0)
+                    
                     <tr>
                       <td>{{$i++}}</td>
                       <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+                      <td>{{ $user -> purok }}</td>
                       <td>
                         @if($user->address == null)
 
@@ -57,6 +60,7 @@ Report of Customer
 
                         @endif
                       </td>
+                      <td>{{ $user -> phone_number }}</td>
                       <td>{{$user -> email}}</td>
                       <td>{{\Carbon\Carbon::parse($user->created_at)->toFormattedDateString() }}</td>
                       <td>
@@ -68,7 +72,7 @@ Report of Customer
                       </td>
                       <td> Customer </td>
                    </tr>
-                  @endif
+                  
                 @endforeach
     
                 </tbody>   

@@ -55,50 +55,94 @@ class CheckOutController extends Controller
 
     	if($paymentType == 'Cash_on_Delivery'){
 
+
              $ShipFees =  shippingfee::all();
-             foreach ($ShipFees as $sf) {
+
+             //check if the database have shipping fee if yes they print with shipping fee
+             if(count($ShipFees) != 0){
+
+                foreach ($ShipFees as $sf) {
                  
+                    $order = new Order();
+                    $order-> user_id = Auth::user()-> id;
+                    $order-> order_shippingfee = $sf -> fee;
+                    $order-> shipping_id = Session::get('shipping_id');  
+                    $order-> order_total = Session::get('sum');
+                    $order -> save();
+
+                 }
+
+                    $payment = new payment();
+                    $payment ->order_id = $order -> id;
+                    $payment ->payment_type = $paymentType;
+                    $payment -> save();
+
+                     $CartDish = Cart::content();
+
+                    foreach($CartDish as $cart){
+
+                        $orderDetails = new OrderDetail();
+                        $orderDetails ->order_id = $order -> id;
+                        $orderDetails ->dish_id = $cart -> id;
+                        $orderDetails ->dish_name = $cart -> name;
+                        $orderDetails ->dish_price = $cart -> price;
+                        $orderDetails ->dish_qty = $cart -> qty;
+                        $orderDetails -> save();
+
+                     }
+                     Cart::destroy();
+                     
+                      $notification = array (
+
+                        'message' => 'Your order has been successfully processed',
+                        'alert-type' =>'success'
+                    );
+
+
+                 return redirect('/')->with($notification);
+
+
+             }
+
+             //else they print a shipping fee with zero value
+
+             else{
+
                 $order = new Order();
                 $order-> user_id = Auth::user()-> id;
-                $order-> order_shippingfee = $sf -> fee;
+                $order-> order_shippingfee = 0;
                 $order-> shipping_id = Session::get('shipping_id');  
                 $order-> order_total = Session::get('sum');
                 $order -> save();
-             }
-    		
 
-    		$payment = new payment();
-    		$payment ->order_id = $order -> id;
-    		$payment ->payment_type = $paymentType;
-    		$payment -> save();
+                $payment = new payment();
+                $payment ->order_id = $order -> id;
+                $payment ->payment_type = $paymentType;
+                $payment -> save();
+            	
+         	    $CartDish = Cart::content();
 
+         	    foreach($CartDish as $cart){
 
-     	    $CartDish = Cart::content();
+    	    		$orderDetails = new OrderDetail();
+    	    		$orderDetails ->order_id = $order -> id;
+    	    		$orderDetails ->dish_id = $cart -> id;
+    	    		$orderDetails ->dish_name = $cart -> name;
+    	    		$orderDetails ->dish_price = $cart -> price;
+    	    		$orderDetails ->dish_qty = $cart -> qty;
+    	    		$orderDetails -> save();
 
-     	    foreach($CartDish as $cart){
+         	     }
+         	     Cart::destroy();
+                 
+                  $notification = array (
 
-	    		$orderDetails = new OrderDetail();
-	    		$orderDetails ->order_id = $order -> id;
-	    		$orderDetails ->dish_id = $cart -> id;
-	    		$orderDetails ->dish_name = $cart -> name;
-	    		$orderDetails ->dish_price = $cart -> price;
-	    		$orderDetails ->dish_qty = $cart -> qty;
-	    		$orderDetails -> save();
+                    'message' => 'Your order has been successfully processed',
+                    'alert-type' =>'success'
+                );
 
-     	     }
-     	     Cart::destroy();
-             
-              $notification = array (
-
-                'message' => 'Your order has been successfully processed',
-                'alert-type' =>'success'
-            );
-
-            
-
-         return redirect('/')->with($notification);
-
-           
+             return redirect('/')->with($notification);
+          } 
      	
 
     	}

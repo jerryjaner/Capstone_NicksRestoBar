@@ -80,8 +80,9 @@
 								<div class="col-sm-4">
 									<h5 class="mb-3"><strong>To:</strong></h5>
 									<div>Customer:<strong> {{$customer -> name}} {{$customer -> lastname}}</strong></div>
+									<div>Purok: {{$shipping -> purok}}</div>
 								    <div>Address: {{$shipping -> address}}</div>
-									<!-- <div>Cupertino CA 92154</div> -->
+								    <!-- <div>Cupertino CA 92154</div> -->
 									<div>Email: {{$customer -> email}}</div>
 									<div>Phone: {{$shipping -> phone_no}}</div>
 								</div>
@@ -90,7 +91,6 @@
 									<h5 class="mb-3"><strong>Details:</strong></h5>
 									<div>Payment :
 
-										
 										@if($payment -> payment_type == 'Cash_on_Delivery')
 
 										   <strong> Cash On Delivery </strong>

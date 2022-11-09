@@ -78,6 +78,20 @@
         @enderror
 
         <div class="input-group mb-3">
+          <input id="purok" type="text" placeholder="Purok" class="form-control @error('purok') is-invalid @enderror" name="purok" value="{{ old('purok') }}" required autocomplete="purok"  autofocus >
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-map-marker"></span>
+            </div>
+          </div>
+        </div>
+        @error('purok')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+
+        <div class="input-group mb-3">
           <input id="address" type="text" placeholder="Address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address"  autofocus >
           <div class="input-group-append">
             <div class="input-group-text">
@@ -86,6 +100,21 @@
           </div>
         </div>
         @error('address')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+
+
+        <div class="input-group mb-3">
+          <input id="phone_number" type="tel" pattern="[0-9]{11}" placeholder="Phone Number Ex: 098966*****" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="address"  autofocus >
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        @error('phone_number')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

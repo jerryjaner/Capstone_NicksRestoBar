@@ -100,6 +100,7 @@ class UserController extends Controller
         $shipping->name = $request -> name;
         $shipping->email = $request -> email;
         $shipping->phone_no = $request -> phone_no;
+        $shipping -> purok = $request -> purok;
         $shipping->address = $request -> address;
         $shipping -> save();
 
@@ -225,11 +226,18 @@ class UserController extends Controller
 
       // ]);
 
+       $validated = $request->validate([
+        'phone_number' => 'required|string|min:11|max:11',
+      ]);
+
+
       $customer_profile = User::find($request->id);
       $customer_profile->name = $request->name;
       // $customer_profile->middlename = $request->middlename;
       $customer_profile->lastname = $request->lastname;
+      $customer_profile -> purok = $request -> purok;
       $customer_profile -> address = $request -> address;
+      $customer_profile -> phone_number = $request -> phone_number;
       // $customer_profile -> email = $request -> email;
       $customer_profile->save();
 

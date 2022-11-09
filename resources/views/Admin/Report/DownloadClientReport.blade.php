@@ -20,8 +20,8 @@
     #example1 th{
       padding-top: 12px;
       padding-bottom: 12px;
-      text-align: left;
-      background-color: green;
+      text-align: center;
+      background-color: #E74844;
       color:white;
     }
   </style>
@@ -36,8 +36,10 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>FullName</th>
+                <th>Full Name</th>
+                <th>Purok No.</th>
                 <th>Address</th>
+                <th>Phone Number</th>
                 <th>Email</th>
                 <th>Role</th>
               
@@ -47,11 +49,12 @@
 
               @php($i = 1)
               @foreach($users  as $user)
-              @if($user -> role == 0)
+             
 
             <tr>
               <td>{{$i++}}</td>                
               <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+              <td>{{ $user -> purok }}</td>
               <td>
                    @if($user->address == null)
 
@@ -63,10 +66,11 @@
                   @endif
               </td>
               <td>{{$user -> email}}</td>
+              <td> {{ $user -> phone_number }}</td>
               <td> Customer </td>
            </tr>
       
-             @endif
+             
             @endforeach
            
             </tbody>                 

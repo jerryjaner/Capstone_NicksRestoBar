@@ -80,21 +80,21 @@
                         <div id="div_id_number" class="form-group required">
                              <label for="id_number" class="control-label col-md-4  requiredField"> Contact number<span class="asteriskField">*</span> </label>
                              <div class="controls col-md-8 ">
-                                 <input class="input-md textinput textInput form-control" id="id_number" name="phone_no" type="tel" pattern="[0-9]{11}" placeholder="Ex: 091286*****"  style="margin-bottom: 10px" type="text" required />
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="phone_no" type="tel" pattern="[0-9]{11}" placeholder="Ex: 091286*****"  value="{{ $customer -> phone_number }}" style="margin-bottom: 10px" type="text" required />
                             </div> 
                         </div> 
 
-                        {{--  <div id="div_id_location" class="form-group required">
+                         <div id="div_id_location" class="form-group required">
                             <label for="id-purok" class="control-label col-md-4  requiredField"> Purok Zone or Street... <span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md textinput textInput form-control" id="id_location" name="" placeholder="Enter Your Purok, Zone or" style="margin-bottom: 10px" type="text" required />
+                                <input class="input-md textinput textInput form-control" id="id_location" name="purok" placeholder="Enter Your Purok, Zone or" style="margin-bottom: 10px" value="{{ $customer -> purok }}" type="text" required />
                             </div> 
-                        </div> --}}
+                        </div>
 
                         <div id="div_id_location" class="form-group required">
-                            <label for="id_location" class="control-label col-md-4  requiredField"> Complete Address <span class="asteriskField">*</span> </label>
+                            <label for="id_location" class="control-label col-md-4  requiredField">Address <span class="asteriskField">*</span> </label>
                             <div class="controls col-md-8 ">
-                                <input class="input-md textinput textInput form-control" id="id_location" name="address" placeholder="Ex: Zone 5 or Purok 2. and your Barangay" style="margin-bottom: 10px" type="text" required />
+                                <input class="input-md textinput textInput form-control" id="id_location" value="{{ $customer -> address }}" name="address" placeholder="Address" style="margin-bottom: 10px" type="text" required />
                             </div> 
                         </div>
                        {{--  <div class="form-group">

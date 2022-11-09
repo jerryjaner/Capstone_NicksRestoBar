@@ -79,6 +79,7 @@
 								<div class="col-sm-4">
 									<h5 class="mb-3"  id="invoicefont"><strong>To:</strong></h5>
 									<div>Name: <strong>{{$customer -> name}} {{$customer -> lastname}}</strong></div>
+									<div>Purok: {{$shipping -> purok}}</div>
 								    <div>Address: {{$shipping -> address}}</div>
 									<div>Email: {{$customer -> email}}</div>
 									<div>Phone: {{$shipping -> phone_no}}</div>
@@ -171,8 +172,6 @@
 									@endif
 								</tbody>
 							</table>
-
-					
 
 						</div>
 						</div>

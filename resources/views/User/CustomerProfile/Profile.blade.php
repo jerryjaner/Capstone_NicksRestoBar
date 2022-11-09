@@ -11,14 +11,13 @@
 	
 <!-- login-page -->
 
-
 	<div class="login-page about">
 
 		<img class="login-w3img" src="{{asset('FrontEndSourceFile')}}/images/img3.jpg" alt="">
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">Customer Profile</h3>  
 			
-				{{-- @error('email')
+				@error('phone_number')
 				
 	                <span class="invalid-feedback " role="alert">
 	                	<center>
@@ -28,7 +27,7 @@
 	                    </center>
 	                </span>
 	           
-	            @enderror --}}
+	            @enderror
 			
 		
 			<div class="login-agileinfo"> 
@@ -43,10 +42,11 @@
 			            <p class="text-muted text-center"><b>Customer Name</b></p> <br> <br>
 		      
 		           		
-		           		<h4><b>Name:</b> {{$CustomerProfile -> name}} {{$CustomerProfile -> middlename}} {{$CustomerProfile -> lastname}}  </h4><hr>
+		           		<h4><b>Name:</b> {{$CustomerProfile -> name}} {{$CustomerProfile -> lastname}}  </h4><hr>
 		              	<h4><b>Email:</b> {{$CustomerProfile -> email}}  </h4><hr> 
-		           	   
+		           	   	<h4><b>Purok:</b> {{$CustomerProfile -> purok}} </h4><hr>
 			          	<h4><b>Address:</b> {{$CustomerProfile -> address}} </h4><hr>
+			          	<h4><b>Phone Number:</b> {{$CustomerProfile -> phone_number}} </h4><hr>
 			        
 			         
 			          {{--   <button class="btn btn-info" style="float:right;" data-bs-toggle="modal" data-bs-target="#edit{{$CustomerProfile->id}}" data-bs-whatever="@fat">
@@ -87,14 +87,16 @@
 										      
 										      	<input class="agile-ltext" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Enter your First Name" required>
 	   	
-				  									      	
 										      	<input class="agile-ltext" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Enter your Last Name" required>
+
+										      	<input class="agile-ltext" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
 
 										      	<input class="agile-ltext" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
 
+										      	<input class="agile-ltext @error('phone_number') is-invalid @enderror" type="text" name="phone_number" value="{{$CustomerProfile -> phone_number}}" placeholder="Phone Number" required>
 
-										      {{-- 	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email">
- --}}
+
+										      {{-- 	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email"> --}}
 										      	 
 
 										      	<div class="modal-footer">

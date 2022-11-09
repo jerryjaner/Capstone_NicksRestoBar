@@ -18,13 +18,13 @@
  <section class="content">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-md-4">
+          <div class="col-md-5">
 	            <!-- About Me Box -->
 	            <div class="card card-primary">
 	              <div class="card-body box-profile">
 	                <div class="text-center">
 	                  <img class="profile-user-img img-fluid img-circle"
-	                      {{-- src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg" --}}
+	                      src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg"
 	                       alt="User profile picture">
 	                </div>
 
@@ -40,8 +40,9 @@
 		              <div class="card-body">
 		              	 <i class="fas fa-user mr-2"></i> {{$admin -> name}} {{ $admin -> lastname }} <hr>
 		              	 <i class="fas fa-envelope mr-2"></i> {{$admin -> email}} <hr>
-		           	   
+		           	     <i class="fas fa-map-marker-alt mr-2"></i> {{$admin -> purok}} <hr>
 			          	 <i class="fas fa-map-marker-alt mr-2"></i>{{$admin -> address}} <hr>
+			          	 <i class="fas fa-phone mr-2"></i> {{$admin -> phone_number}} <hr>
 			        
 			             <button class="btn btn-success btn-sm" style="float:right;" data-bs-toggle="modal" data-bs-target="#edit{{$admin->id}}" data-bs-whatever="@fat">Edit Profile</button>
 		              </div>
@@ -64,7 +65,11 @@
 
 									  <div class="col-md-12">
 									    <label for="First Name" class="form-label">First Name</label>
-									    <input type="text" class="form-control" name="name" placeholder="First Name" required>
+									    <input type="text" class="form-control" 
+									           name="name"
+									           placeholder="First Name"
+									           value="{{ $admin -> name }}" 
+									           required>
 									  </div>
 									  {{--  <div class="col-md-4">
 									    <label for="Middle Name" class="form-label">Middle Name</label>
@@ -72,12 +77,39 @@
 									  </div> --}}
 									  <div class="col-md-12">
 									    <label for="Last Name" class="form-label">Last Name</label>
-									    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
+									    <input type="text" class="form-control"
+									    	   name="lastname"
+									    	   placeholder="Last Name"
+									    	   value="{{ $admin -> lastname }}" 
+									    	   required>
+									  </div>
+
+									  <div class="col-md-12">
+									    <label for="purok" class="form-label">Purok No.</label>
+									    <input type="text" class="form-control"
+									           name="purok"
+									           placeholder="Purok No."
+									           value="{{ $admin -> purok }}" 
+									           required>
 									  </div>
 
 									  <div class="col-12">
 									    <label for="address" class="form-label">Address</label>
-									    <input type="text" class="form-control"  placeholder="Address" name="address" required>
+									    <input type="text" class="form-control"
+									           placeholder="Address"
+									           name="address"
+									           value="{{ $admin -> address }}" 
+									           required>
+									  </div>
+
+									  <div class="col-md-12">
+									    <label for="phone_number" class="form-label">Phone Number</label>
+									    <input type="tel" class="form-control" name="phone_number" placeholder="Phone Number" 
+									           pattern="[0-9]{11}" 
+		                                       min="11"
+		                                       max="11" 
+		                                       value="{{ $admin -> phone_number }}" 
+		                                       required>
 									  </div>
 
 									{{--    <div class="col-12">

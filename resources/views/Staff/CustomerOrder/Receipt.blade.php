@@ -155,6 +155,7 @@
                                 </td>
                                 <td><span style="margin-right: 200px">To:</span><br/>
                                     <strong>{{$customer -> name}} {{$customer -> lastname}}</strong><br/>
+                                    {{ $shipping -> purok }}
                                     {{$shipping -> address}}<br/>
                                     {{$shipping -> email}}<br/>
                                     {{$shipping -> phone_no}}<br/>

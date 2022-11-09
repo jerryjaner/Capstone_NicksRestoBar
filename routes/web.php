@@ -25,8 +25,11 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!+
 
+for the login with google this client id belongs to env file
 
-|
+GOOGLE_CLIENT_ID="79659538822-s1f18c9l1d671dq7rtpbj1fo4bt72cng.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET="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"
+
 */
 
 Route::get('/', function () {

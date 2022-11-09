@@ -13,6 +13,7 @@ class Shipping extends Model
         
     	'name',
     	'email',
+    	'purok',
     	'phone_no',
     	'address',
     ];
