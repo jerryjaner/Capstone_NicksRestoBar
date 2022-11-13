@@ -98,7 +98,7 @@
             <a href="{{route('client_report')}}" class="nav-link {{($route == 'client_report')?'active':''}} ">
               <i class="nav-icon fas fa-folder"></i>
               <p class="sidebarfont">
-                  Report of Customers
+                  Customer Report
               </p>
             </a>
           </li>

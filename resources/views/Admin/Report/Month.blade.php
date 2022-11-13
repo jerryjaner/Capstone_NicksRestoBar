@@ -88,7 +88,7 @@
 	      	<tr>
 
 	      	{{-- 	<td>{{$i++}}</td> --}}
-	      		<td>{{\Carbon\Carbon::parse($ReportOrder->created_at)->Format('m-d-Y')}}</td>
+	      		<td>{{\Carbon\Carbon::parse($ReportOrder->created_at)->toFormattedDateString()}}</td>
 	      		<td>{{$ReportOrder -> name}} {{$ReportOrder -> middlename}} {{$ReportOrder -> lastname}}</td>
 	      		<td>{{ $ReportOrder -> order_total}} Pesos</td>
 	      		

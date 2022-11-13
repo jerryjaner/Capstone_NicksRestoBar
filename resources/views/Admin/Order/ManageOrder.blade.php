@@ -90,8 +90,8 @@
         <tr>
           <td>{{$i++}}</td>
           <td>{{$order-> name}}  {{$order -> lastname}}</td>
-          <td>{{$order-> order_total}}</td>
-          <td>{{$order -> order_shippingfee }}</td>
+          <td>₱ {{$order-> order_total}}</td>
+          <td>₱ {{$order -> order_shippingfee }}</td>
           <td>
 
             @if($order->order_status =='pending')

@@ -18,7 +18,7 @@
  <section class="content">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-md-5">
+          <div class="col-md-4">
 	            <!-- About Me Box -->
 	            <div class="card card-primary">
 	              <div class="card-body box-profile">
@@ -38,11 +38,11 @@
 
 	              <!-- /.card-header -->
 		              <div class="card-body">
-		              	 <i class="fas fa-user mr-2"></i> {{$admin -> name}} {{ $admin -> lastname }} <hr>
-		              	 <i class="fas fa-envelope mr-2"></i> {{$admin -> email}} <hr>
-		           	     <i class="fas fa-map-marker-alt mr-2"></i> {{$admin -> purok}} <hr>
-			          	 <i class="fas fa-map-marker-alt mr-2"></i>{{$admin -> address}} <hr>
-			          	 <i class="fas fa-phone mr-2"></i> {{$admin -> phone_number}} <hr>
+		              	 <i class="fas fa-user mr-3"></i> {{$admin -> name}} {{ $admin -> lastname }} <hr>
+		              	 <i class="fas fa-envelope mr-3"></i> {{$admin -> email}} <hr>
+		           	     <i class="fas fa-map-marker-alt mr-3"></i> {{$admin -> purok}} <hr>
+			          	 <i class="fas fa-map-marker-alt mr-3"></i>{{$admin -> address}} <hr>
+			          	 <i class="fas fa-phone mr-3"></i> {{$admin -> phone_number}} <hr>
 			        
 			             <button class="btn btn-success btn-sm" style="float:right;" data-bs-toggle="modal" data-bs-target="#edit{{$admin->id}}" data-bs-whatever="@fat">Edit Profile</button>
 		              </div>
@@ -110,6 +110,15 @@
 		                                       max="11" 
 		                                       value="{{ $admin -> phone_number }}" 
 		                                       required>
+									  </div>
+
+									  <div class="col-12">
+									    <label for="address" class="form-label">Email</label>
+									    <input type="text" class="form-control"
+									           placeholder="Email"
+									           name="email"
+									           value="{{ $admin -> email }}" 
+									           required>
 									  </div>
 
 									{{--    <div class="col-12">

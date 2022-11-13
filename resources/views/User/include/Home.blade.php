@@ -72,8 +72,8 @@
 	</div>
    
     {{-- most sold --}}
-
- {{--    <div class="products">	 
+    @if(count($customer_order) > 0)
+    <div class="products">	 
 		<div class="container">
 			<div class="col-md-12 product-w3ls-right"> 
 				<div class="product-top">
@@ -114,7 +114,8 @@
 				</div>
 			</div>
 		</div>
-	</div> --}}
+	</div>
+	@endif
     {{-- end of most sold --}}
 
 	<!-- //order --> 

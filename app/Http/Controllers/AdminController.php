@@ -87,17 +87,17 @@ class AdminController extends Controller
 
     public function profile(){
     
-         $admin = User::find(Auth::id());
+        $admin = User::find(Auth::id());
         return view('Admin.Users.UserProfile',compact(var_name:'admin')); 
     }
 
     public function profile_update(Request $request){
 
-      //  $validated = $request->validate([
-      //   'email' => 'required|email|string|unique:users|max:255',
+     $validated = $request->validate([
 
-      // ]);
+        'email' => 'required|email|string|unique:users,email,'.$request->id,
 
+      ]);
 
     	$profile = User::find($request->id);
     	$profile->name = $request->name;
@@ -106,7 +106,7 @@ class AdminController extends Controller
     	$profile -> purok = $request -> purok;
       $profile -> address = $request -> address;
       $profile -> phone_number = $request -> phone_number;
-      // $profile -> email = $request -> email;
+      $profile -> email = $request -> email;
     	$profile->save();
 
         $notification = array (
@@ -149,6 +149,41 @@ class AdminController extends Controller
           return redirect()->back();
 
       }
+
+    }
+
+    public function update_staff(Request $request){
+
+       $validated = $request->validate([
+
+        'email' => 'required|email|string|unique:users,email,'.$request->id,
+
+      ]);
+
+      // if($request -> id){
+
+      //   $this -> validate($request,[
+
+      //     'email' => 'required|unique:users,email,'.$request->id,
+      //   ]);
+
+      // }
+      $staff_profile = user::find($request -> id);
+      $staff_profile->name = $request->name;
+      $staff_profile->lastname = $request->lastname;
+      $staff_profile -> purok = $request -> purok;
+      $staff_profile -> address = $request -> address;
+      $staff_profile -> phone_number = $request -> phone_number;
+      $staff_profile -> email = $request -> email;
+      $staff_profile->save();
+
+        $notification = array (
+
+            'message' => 'Profile Updated Successfully',
+            'alert-type' =>'info'
+        );
+
+        return back()->with($notification);
 
     }
 

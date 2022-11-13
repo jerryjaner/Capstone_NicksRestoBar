@@ -9,8 +9,8 @@
 <!-- contact -->
 	<div id="contact" class="contact cd-section">
 		<div class="container">
-			<h3 class="w3ls-title">Contact us</h3>
-			<p class="w3lsorder-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sheets containing sed </p> 
+			<h3 class="w3ls-title">Contact us</h3><br>
+			{{-- <p class="w3lsorder-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit sheets containing sed </p>  --}}
 			<div class="contact-row agileits-w3layouts">  
 				<div class="col-xs-6 col-sm-6 contact-w3lsleft">
 					<div class="contact-grid agileits">

@@ -32,9 +32,9 @@ GOOGLE_CLIENT_SECRET="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"
 
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware(['middleware'=>'PreventBackHistory'])->group (function(){
 
@@ -59,6 +59,9 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth','PreventBackHist
 	Route::post('update', [AdminController::class, 'profile_update'])->name('profile_update');
 	Route::get('change/password',[AdminController::class,'change_pass'])->name('change_password');
 	Route::post('update/password', [AdminController::class, 'update_pass'])->name('password_update');
+
+	/* Update Staff */
+	Route::post('staff-update',[AdminController::class,'update_staff'])->name('update_staff');
 	
 	/* Category Start here */
 	Route::get('/category/add', [CategoryController::class, 'index'])->name('show_cate_table');

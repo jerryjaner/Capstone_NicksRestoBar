@@ -22,27 +22,29 @@ class UserController extends Controller
    	 //	$categories = Category::where('category_status', 1) -> get();
 
      
-     // $most_sold = DB::table('dishes')
-     //  ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
-     //  ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
-     //  ->groupBy('dishes.id')
-     //  ->orderBy('total','desc')
-     //  ->take(3)
-     //  ->get();
+     $most_sold = DB::table('dishes')
+      ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
+      ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
+      ->groupBy('dishes.id')
+      ->orderBy('total','desc')
+      ->take(3)
+      ->where('dish_qty', '!=', 0)
+      ->get();
 
-     //  $top_Products = [];
+      $top_Products = [];
     
-     //  foreach ($most_sold as $s) {
+      foreach ($most_sold as $s) {
        
-     //    $product = Dish::findOrFail($s->id);
-     //    $product -> dish_qty = $s -> total;
-     //    $top_Products[] = $product;
+        $product = Dish::findOrFail($s->id);
+        $product -> dish_qty = $s -> total;
+        $top_Products[] = $product;
         
-     //   }
+       }
     
- 
-   		$dishes = Dish::where('dish_status', 1) -> get();
-   		return view('User.include.Home',compact('dishes') );
+      $customer_order = Order::all(); 
+   		$dishes = Dish::where('dish_status', 1) -> get(); 
+
+   		return view('User.include.Home',compact('dishes','top_Products','customer_order') );
    }
 
    public function dish_show($id){
