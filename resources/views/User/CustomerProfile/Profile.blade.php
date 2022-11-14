@@ -28,6 +28,17 @@
 	                </span>
 	           
 	            @enderror
+	            @error('email')
+				
+	                <span class="invalid-feedback " role="alert">
+	                	<center>
+	                	   	
+	                	   		<strong style="color:red;">Error in updating profile <br>{{ $message }}</strong>
+	                	   	
+	                    </center>
+	                </span>
+	           
+	            @enderror
 			
 		
 			<div class="login-agileinfo"> 
@@ -96,7 +107,7 @@
 										      	<input class="agile-ltext @error('phone_number') is-invalid @enderror" type="text" name="phone_number" value="{{$CustomerProfile -> phone_number}}" placeholder="Phone Number" required>
 
 
-										      {{-- 	<input class="agile-ltext @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="New Email"> --}}
+										      	<input class="agile-ltext" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
 										      	 
 
 										      	<div class="modal-footer">

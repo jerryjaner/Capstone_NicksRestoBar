@@ -14,14 +14,17 @@
 			<div class="contact-row agileits-w3layouts">  
 				<div class="col-xs-6 col-sm-6 contact-w3lsleft">
 					<div class="contact-grid agileits">
-						<h4>DROP US A LINE </h4>
-						<form action="#" method="post"> 
-							<input type="text" name="Name" placeholder="Name" required="">
-							<input type="email" name="Email" placeholder="Email" required=""> 
-							<input type="text" name="Phone Number" placeholder="Phone Number" required="">
-							<textarea name="Message" placeholder="Message..." required=""></textarea>
-							<input type="submit" value="Submit" >
+						<h4 style="text-align: center;">Customer Feedback </h4>
+
+						<form action="{{ route('customer_feedback') }}" method="post" onsubmit="btn.disabled = true; return true;">
+							@csrf 
+							<input type="text" name="name" placeholder="FullName" required="">
+							<input type="email" name="email" placeholder="Email" required=""> 
+							<input type="tel" name="contact" placeholder="Phone Number" required="">
+							<textarea name="message" placeholder="Message..." required=""></textarea>
+							<input type="submit" value="Submit" name="btn">
 						</form> 
+
 					</div>
 				</div>
 				<div class="col-xs-6 col-sm-6 contact-w3lsright">
@@ -37,16 +40,16 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					{{-- <div class="address-row w3-agileits">
+					<div class="address-row w3-agileits">
 						<div class="col-xs-2 address-left">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 						</div>
 						<div class="col-xs-10 address-right">
 							<h5>Mail Us</h5>
-							<p><a href="mailto:info@example.com"> mail@example.com</a></p>
+							<p><a href="">NicksRestoBar@gmail.com</a></p>
 						</div>
 						<div class="clearfix"> </div>
-					</div> --}}
+					</div>
 					<div class="address-row">
 						<div class="col-xs-2 address-left">
 							<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>

@@ -8,6 +8,7 @@ use App\Models\Shipping;
 use App\Models\order;
 use App\Models\message;
 use App\Models\OrderDetail;
+use App\Models\Feedback;
 use Cart;
 use DB;
 use Session;
@@ -223,14 +224,15 @@ class UserController extends Controller
 
     public function customer_profile_update(Request $request){
 
-      // $validated = $request->validate([
-      //   'email' => 'required|email|string|unique:users|max:255',
-
-      // ]);
-
-       $validated = $request->validate([
+      $validated = $request->validate([
+        'email' => 'required|email|string|unique:users,email,'.$request -> id,
         'phone_number' => 'required|string|min:11|max:11',
+
       ]);
+
+      //  $validated = $request->validate([
+      //   'phone_number' => 'required|string|min:11|max:11',
+      // ]);
 
 
       $customer_profile = User::find($request->id);
@@ -240,7 +242,7 @@ class UserController extends Controller
       $customer_profile -> purok = $request -> purok;
       $customer_profile -> address = $request -> address;
       $customer_profile -> phone_number = $request -> phone_number;
-      // $customer_profile -> email = $request -> email;
+       $customer_profile -> email = $request -> email;
       $customer_profile->save();
 
         $notification = array (
@@ -287,6 +289,27 @@ class UserController extends Controller
 
           return redirect()->back();
       }
+
+    }
+
+    public function customer_feedback(Request $request){
+
+      $customer_feedback = new Feedback();
+      $customer_feedback -> name = $request -> name;
+      $customer_feedback -> email = $request -> email;
+      $customer_feedback -> contact = $request -> contact;
+      $customer_feedback -> message = $request -> message;
+      $customer_feedback -> save();
+
+
+      $notification = array (
+
+            'message' => 'Feedback Successfully Sent',
+            'alert-type' =>'success'
+        );
+
+        return back()->with($notification);
+
 
     }
 

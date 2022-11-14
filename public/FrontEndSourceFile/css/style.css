@@ -1799,7 +1799,7 @@ p.single-price-text {
     margin-bottom: 1em;
     font-weight: 100;
 }
-.contact input[type="text"], .contact input[type="email"], .contact textarea {
+.contact input[type="text"], .contact input[type="email"], .contact input[type="tel"], .contact textarea {
     width: 100%;
     color: #555;
     background: #fff;
@@ -2939,7 +2939,7 @@ p.w3lsorder-text {
 .contact-grid h4 {
     font-size: 1.6em; 
 }
-.contact input[type="text"], .contact input[type="email"], .contact textarea { 
+.contact input[type="text"], .contact input[type="email"],.contact input[type="tel"], .contact textarea { 
     padding: .6em 1em;
     margin-bottom: 1em; 
 }
@@ -3145,7 +3145,7 @@ h3.w3ls-title.w3ls-title1 {
 .contact-grid {
     padding: 1.5em;
 }
-.contact input[type="text"], .contact input[type="email"], .contact textarea { 
+.contact input[type="text"], .contact input[type="email"],.contact input[type="tel"], .contact textarea { 
     font-size: 0.9em; 
 }
 .contact textarea {

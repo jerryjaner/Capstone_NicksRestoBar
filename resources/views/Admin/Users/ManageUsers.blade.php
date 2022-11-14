@@ -6,9 +6,6 @@
 @endsection
 @section('content')
 
-
-
-
 <style>
   
   div.dataTables_wrapper div.dataTables_length select {
@@ -170,77 +167,8 @@
           
         	@php($i = 1)
         	@foreach($users  as $user)
-          <tr>
-            <td>{{$i++}}</td>
-            <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
-            <td>{{ $user -> purok }}</td>
-            <td>
 
-               @if($user->address == null)
-
-                    N/A
-                    
-                @else
-                  {{$user->address}}
-
-                @endif
-                
-            </td>
-            <td>{{ $user -> phone_number }}</td>
-            
-            <td>{{$user -> email}}</td>
-            
-            <td>
-
-                @if($user -> google_id)
-                   Google Account
-                @else
-                   Nick's Resto Bar System 
-                @endif
-
-            </td >
-
-            <td>
-
-                  @if($user ->role == 1)
-
-                    <p class="text-center">
-                     <span class="badge badge-info">Admin</span>
-                    </p>
-
-                  @elseif($user ->role == 2)
-
-                    <p class="text-center">
-                     <span class="badge badge-secondary">Staff</span>
-                    </p>
-
-                  @else
-                    <p class="text-center">
-                     <span class="badge badge-warning">Customer</span>
-                    </p>
-                  @endif
-                  
-            </td>
-            
-            {{-- <td>{{ \Carbon\Carbon::parse($user -> created_at)->diffForHumans() }}</td> --}}
-            <td>{{\Carbon\Carbon::parse($user->created_at)->toFormattedDateString()}}</td>
-            <td style="text-align: center;">
-
-                @if($user -> role == 2)
-
-                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit{{ $user -> id }}" data-bs-whatever="@fat">
-                    Edit 
-                </button>
-
-                @else
-                  . . .
-                @endif
-
-            </td>
-
-            </tr>
-            
-           {{--  edit the staff --}}
+      {{--  edit the staff --}}
            <div class="modal fade" id="edit{{ $user -> id }}" tabindex="-1" aria-labelledby="edit" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
@@ -318,8 +246,121 @@
                </div>
              </div>
            </div>
+        {{-- end of edit --}}
 
-           {{-- end of edit --}}
+          <tr>
+            <td>{{$i++}}</td>
+            <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+            <td>{{ $user -> purok }}</td>
+            <td>
+
+               @if($user->address == null)
+
+                    N/A
+                    
+                @else
+                  {{$user->address}}
+
+                @endif
+                
+            </td>
+            <td>{{ $user -> phone_number }}</td>
+            
+            <td>{{$user -> email}}</td>
+            
+            <td>
+
+                @if($user -> google_id)
+                   Google Account
+                @else
+                   Nick's Resto Bar System 
+                @endif
+
+            </td >
+
+            <td>
+
+                  @if($user ->role == 1)
+
+                    <p class="text-center">
+                     <span class="badge badge-info">Admin</span>
+                    </p>
+
+                  @elseif($user ->role == 2)
+
+                    <p class="text-center">
+                     <span class="badge badge-secondary">Staff</span>
+                    </p>
+
+                  @else
+                    <p class="text-center">
+                     <span class="badge badge-warning">Customer</span>
+                    </p>
+                  @endif
+                  
+            </td>
+            
+            {{-- <td>{{ \Carbon\Carbon::parse($user -> created_at)->diffForHumans() }}</td> --}}
+            <td>{{\Carbon\Carbon::parse($user->created_at)->toFormattedDateString()}}</td>
+            <td style="text-align: center;">
+
+                @if($user -> role == 2)
+
+                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit{{ $user -> id }}" data-bs-whatever="@fat">
+                    Edit 
+                </button>
+
+                <button type="button" class="btn btn-info btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#changepassword{{ $user -> id }}" data-bs-whatever="@fat">Change Password</button>
+
+                @else
+                  . . .
+                @endif
+
+            </td>
+
+            </tr>
+            
+             {{--  edit the staff --}}
+           <div class="modal fade" id="changepassword{{ $user -> id }}" tabindex="-1" aria-labelledby="changepassword" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <h5 class="modal-title w-100" id="add">Change Staff Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{{ route('change_staff_password') }}" method="post" onsubmit="btn.disabled = true; return true;">
+
+                         @csrf
+
+                        <input type="hidden" class="form-control"  name="id" value="{{$user->id}}">
+                      
+                        <div class="form-group">
+                          <label> New Password</label>
+                          <input type="password" class="form-control" name="password"
+                                 placeholder="New Password" 
+                                 required>
+                        </div>
+
+                        <div class="form-group">
+                          <label>Confirm Password</label>
+                          <input type="password" class="form-control" name="password_confirmation"
+                                 placeholder="Confirm Password" 
+                                 required>
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button> 
+                          <button class="btn btn-primary" type="submit" name="btn">Submit</button>
+                        </div>
+
+                    </form>
+                 </div>
+               </div>
+             </div>
+           </div>
+        {{-- end of edit --}}
+           
           @endforeach
           
           </tbody>

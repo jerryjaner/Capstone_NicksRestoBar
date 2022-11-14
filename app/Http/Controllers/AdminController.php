@@ -187,6 +187,31 @@ class AdminController extends Controller
 
     }
 
+    public function change_staff_password(Request $request){
+        
+       $validated = $request->validate([
+     
+        'password' => 'required|confirmed|min:8|max:255',
+        'password_confirmation' => 'required',
+
+      ]);
+
+       
+
+        $staff_password = User::find($request -> id);
+        $staff_password -> password = Hash::make($request-> password);
+        $staff_password->save();
+        
+         $notification = array (
+
+            'message' => 'Password Successfully Change',
+            'alert-type' =>'info'
+        );
+
+        return back()->with($notification);
+       
+    }
+
 
 
 

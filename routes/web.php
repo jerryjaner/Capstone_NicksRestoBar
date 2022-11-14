@@ -62,6 +62,7 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth','PreventBackHist
 
 	/* Update Staff */
 	Route::post('staff-update',[AdminController::class,'update_staff'])->name('update_staff');
+	Route::post('change-staff-password', [AdminController::class, 'change_staff_password'])->name('change_staff_password');
 	
 	/* Category Start here */
 	Route::get('/category/add', [CategoryController::class, 'index'])->name('show_cate_table');
@@ -111,7 +112,6 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth','PreventBackHist
     Route::post('filter/report',[ReportController::class,'filter'])->name('filter');
     Route::get('filter', [ReportController::class, 'download_filtered'])->name('filtered');
     
-
     /* Message Customer */
     Route::get('message',[MessageController::class,'message_customer'])->name('message');
     Route::post('newMessage', [MessageController::class, 'new_message'])->name('send_smg');
@@ -189,8 +189,8 @@ Route::group(['prefix'=>'staff','middleware'=>['isStaff','auth','PreventBackHist
     Route::get('change/password',[UserController::class,'view_of_change_pass'])->name('view_of_changepassword');
     Route::post('update/password', [UserController::class, 'customer_update_password'])->name('update_pass');
 
-
-	
+   // Customer Feedback
+	 Route::post('Feedback',[UserController::class,'customer_feedback'])->name('customer_feedback');
 
 
 
