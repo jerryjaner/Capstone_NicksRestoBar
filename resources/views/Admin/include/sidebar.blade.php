@@ -118,6 +118,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview ">
+            <a href="{{route('feedback')}}" class="nav-link {{($route == 'feedback')?'active':''}}">
+              <i class="nav-icon fas fa-comments"></i>
+              <p class="sidebarfont">
+                   Customer Feedback
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

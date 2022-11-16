@@ -14,6 +14,7 @@ use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\FacebookLoginController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ShippingFeeController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -115,6 +116,10 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth','PreventBackHist
     /* Message Customer */
     Route::get('message',[MessageController::class,'message_customer'])->name('message');
     Route::post('newMessage', [MessageController::class, 'new_message'])->name('send_smg');
+
+    /* Customer feedback */
+    Route::get('customer-feedback',[FeedbackController::class,'feedback'])->name('feedback');
+    Route::get('customer-feedback-delete{id}',[FeedbackController::class,'feedback_delete'])->name('feedback_delete');
 
 
 
