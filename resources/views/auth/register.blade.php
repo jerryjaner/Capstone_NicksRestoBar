@@ -33,7 +33,7 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register Account</p>
+      <p class="login-box-msg" style="font-size: 24px;"><b>Nick's Restobar & Cafe Restaurant</b></p>
 
       <form action="{{ route('register')}}" enctype="multipart/form-data"  method="post" onsubmit="btn.disabled = true; return true;">
          @csrf

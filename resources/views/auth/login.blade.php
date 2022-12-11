@@ -26,13 +26,13 @@
 <div class="register-box">
   <div class="register-logo">
 
-    <a href="#"><b>Nick's </b>Resto Bar</a>
+   {{--  <a href="#"><b>Nick's </b>Resto Bar</a> --}}
   {{--   <img src="{{asset('/BackEndSourceFile')}}/Nicks_logo/nickslogo.jpg" class="img-circle elevation-2" style="width: 250px; border-radius: 50%;" alt="Nicks Logo"> --}} 
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-       <p class="login-box-msg"></p> 
+       <p class="login-box-msg" style="font-size: 24px;"><b>Nick's Restobar & Cafe Restaurant</b></p> 
 
     @if(Session('sms'))
        <!--  <div class="alert alert-default alert-dismissible fade show" role="alert"> -->

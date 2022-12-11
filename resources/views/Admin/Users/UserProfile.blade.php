@@ -23,9 +23,12 @@
 	            <div class="card card-primary">
 	              <div class="card-body box-profile">
 	                <div class="text-center">
-	                  <img class="profile-user-img img-fluid img-circle"
-	                      src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg"
-	                       alt="User profile picture">
+	                 {{--  <img class="profile-user-img img-fluid img-circle"
+	                      src="{{asset('/BackEndSourceFile/Profile_Picture'.$admin -> avatar)}}"
+	                       alt="User profile picture"> --}}
+	                       <img class="profile-user-img img-fluid img-circle"
+		                      src="{{asset('BackEndSourceFile/Profile_Picture/'.$admin->avatar)}}"
+		                       alt="User profile picture" style="width:150px; height: 150px;"> 
 	                </div>
 
 	                
@@ -58,7 +61,7 @@
 
 				                <div class="modal-body">
 	     
-				                    <form class="row g-3" action="{{route('profile_update')}}" method="post" onsubmit="btn.disabled = true; return true;">
+				                    <form class="row g-3" action="{{route('profile_update')}}" enctype="multipart/form-data" method="post" onsubmit="btn.disabled = true; return true;">
 
 				                       @csrf
 				                      <input type="hidden" class="form-control"  name="id" value="{{$admin -> id}}">
@@ -120,6 +123,10 @@
 									           value="{{ $admin -> email }}" 
 									           required>
 									  </div>
+									  <div class="col-12">
+			                             <label> New Profile Picture</label>
+			                             <input type="file" class="form-control" name="avatar" accept="image/*">
+			                        </div>
 
 									
 									{{--    <div class="col-12">

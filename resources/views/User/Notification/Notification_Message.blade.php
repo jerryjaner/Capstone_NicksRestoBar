@@ -45,6 +45,7 @@
 </style>
 <br>
 <center>
+  <h3 class="w3ls-title">Notification</h3><br>
  <table id="example" class="table table-striped table-bordered" style="width:68%">
         <thead>
             <tr>

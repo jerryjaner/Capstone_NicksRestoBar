@@ -33,7 +33,7 @@
 
     </style>
 
-<h3 style="text-align: center; margin-top: 30px; margin-bottom: 20px;" >View Order</h3> 
+<h3 class="w3ls-title" style="margin-top: 10px;">View Order</h3><br>
 
 <center>
 <table id="example1" class="table table-bordered table-striped">        

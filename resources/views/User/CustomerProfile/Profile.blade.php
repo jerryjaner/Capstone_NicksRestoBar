@@ -95,10 +95,16 @@
 										    	@csrf
 
 										    	<input type="hidden" class="form-control"  name="id" value="{{$CustomerProfile -> id}}">
-										      
+										      	
+
+										      	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Fullname" required>
+
+										      	@if($CustomerProfile -> google_id == null)
+
 										      	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Firstname" required>
 	   	
 										      	<input class="form-control" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Lastname" required>
+										      	@endif
 
 										      	<input class="form-control" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
 
@@ -114,7 +120,7 @@
 									      			   oninput="this.setCustomValidity('')">
 
 										      	<input class="form-control" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
-										      	 
+										      	
 									             <input type="file" class="form-control " id="exampleInputFile"  name="avatar" accept="image/*" style="margin-top: 8%; border-color: #999999" >
 									             <label>New Profile Picture</label>
 									             

@@ -232,7 +232,23 @@ class AdminController extends Controller
       $profile -> phone_number = $request -> phone_number;
       $profile -> email = $request -> email;
 
-    	$profile->save();
+      if($request -> hasfile('avatar'))
+      {
+        $destination = 'BackEndSourceFile/Profile_Picture/'.$profile ->avatar;
+
+        if(File::exists($destination))
+        {
+          File::delete($destination);
+        }
+        $file = $request ->file('avatar');
+        $extention = $file->getClientOriginalExtension();
+        $filename = time ().'.'.$extention;
+        $file->move('BackEndSourceFile/Profile_Picture/',$filename);
+
+        $profile->avatar =$filename;
+      }
+
+    	$profile->update();
 
         $notification = array (
 

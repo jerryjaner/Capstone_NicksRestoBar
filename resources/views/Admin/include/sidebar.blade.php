@@ -3,6 +3,7 @@
     $prefix = Request::route()->getPrefix();
     $route = Route::current()->getName();
     $pending_orders = \App\Models\order::where('order_status','pending')->count();
+    $customer_feedback = \App\Models\Feedback::count();
     
   @endphp
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -100,6 +101,9 @@
               <p class="sidebarfont">
                    Customer Feedback
               </p>
+              @if($customer_feedback > 0)
+                <span class="badge badge-info right" title="Pending Orders">{{$customer_feedback}}</span>
+              @endif
             </a>
           </li>
           <li class="nav-item has-treeview ">

@@ -206,7 +206,7 @@
                                  required>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                            <label> Previous Profile</label>
                            <img src="{{asset('BackEndSourceFile/Profile_Picture/'.$user->avatar)}}" alt="Profile Picture" width="100x" height="100px" border-radius="50%">
                         </div>

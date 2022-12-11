@@ -60,6 +60,7 @@
                         @if($order -> payment_type == 'Cash_on_Pickup')
 
                           <option>Ready to Pickup</option>
+                          <option>Already Picked up</option>
 
                         @elseif($order -> payment_type == 'Cash_on_Delivery')
 
@@ -131,6 +132,13 @@
                  <span class="badge badge-primary">Ready to Pickup</span>
               </p>
 
+             @elseif($order->order_status == "Already Picked up")
+
+              <p class="text-center">
+                 <span class="badge badge-success">Already Picked up</span>
+              </p>
+
+
 
             @endif
 
@@ -186,11 +194,13 @@
 
                    <li><a class="dropdown-item" href="{{route('view_invoice',['id'=>$order->id])}}" ><i class="fas fa-search-plus"  title="View Invoice"> </i> View Invoice</a></li>
 
-                @if($order->order_status =='Cancelled' || $order->order_status =='Delivered')
+                @if($order->order_status =='Cancelled' || $order->order_status =='Delivered' || $order -> order_status == 'Already Picked up')
                   
 
                 @else
+
                    <li><a class="dropdown-item" href="#" type="button" data-bs-toggle ="modal" data-bs-target="#orderstatus{{$order->id}}" data-bs-whatever="@fat"> <i class="fas fa-edit"  title="Edit Order Status">  </i> Edit Order Status</a></li> 
+
 
                 @endif
 
