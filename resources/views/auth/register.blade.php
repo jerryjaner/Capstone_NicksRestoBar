@@ -21,18 +21,21 @@
   <link rel="stylesheet" href="{{asset('/BackEndSourceFile')}}/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+ 
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b>Nick's </b>Resto Bar</a>
-  </div>
+{{--     <a href="#"><b>Nick's </b>Resto Bar</a>
+ --}}  </div>
+
+
 
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register Account</p>
 
-      <form action="{{ route('register')}}" method="post" onsubmit="btn.disabled = true; return true;">
+      <form action="{{ route('register')}}" enctype="multipart/form-data"  method="post" onsubmit="btn.disabled = true; return true;">
          @csrf
 
         <div class="input-group mb-3">
@@ -77,8 +80,31 @@
             </span>
         @enderror
 
+         <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input @error('avatar') is-invalid @enderror" id="exampleInputFile" name="avatar" accept="image/*" required>
+              <label class="custom-file-label" for="exampleInputFile" style="color: gray;">Select Profile Picture</label>
+            </div>
+          </div>
+       {{--  <div class="input-group mb-3">
+          <input type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" accept="image/*" id="inputGroupFile02" required>
+
+          <label class="input-group-text" for="inputGroupFile02">Upload Profile</label>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        @error('avatar')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror --}}
+
         <div class="input-group mb-3">
-          <input id="purok" type="text" placeholder="Purok" class="form-control @error('purok') is-invalid @enderror" name="purok" value="{{ old('purok') }}" required autocomplete="purok"  autofocus >
+          <input id="purok" type="text" placeholder="Purok" class="form-control @error('purok') is-invalid @enderror" name="purok" value="{{ old('purok') }}" required autocomplete="purok"  autofocus >  
+
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-map-marker"></span>
@@ -204,6 +230,12 @@
 <script src="{{asset('/BackEndSourceFile')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/BackEndSourceFile')}}/dist/js/adminlte.min.js"></script>
+<script src="{{asset('/BackEndSourceFile')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>
 

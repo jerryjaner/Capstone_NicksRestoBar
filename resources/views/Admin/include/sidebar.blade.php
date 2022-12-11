@@ -95,30 +95,6 @@
             </a>
           </li>
           <li class="nav-item has-treeview ">
-            <a href="{{route('client_report')}}" class="nav-link {{($route == 'client_report')?'active':''}} ">
-              <i class="nav-icon fas fa-folder"></i>
-              <p class="sidebarfont">
-                  Customer Report
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview ">
-            <a href="{{route('monthly')}}" class="nav-link {{($route == 'monthly')?'active':''}}">
-              <i class="nav-icon fas fa-folder"></i>
-              <p class="sidebarfont">
-                  Monthly Order 
-              </p>
-            </a>
-          </li>
-           <li class="nav-item has-treeview ">
-            <a href="{{route('month')}}" class="nav-link {{($route == 'month')?'active':''}}">
-              <i class="nav-icon fas fa-folder"></i>
-              <p class="sidebarfont">
-                   Monthly Transactions
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview ">
             <a href="{{route('feedback')}}" class="nav-link {{($route == 'feedback')?'active':''}}">
               <i class="nav-icon fas fa-comments"></i>
               <p class="sidebarfont">
@@ -126,6 +102,31 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview ">
+            <a href="{{route('client_report')}}" class="nav-link {{($route == 'client_report')?'active':''}} ">
+              <i class="nav-icon fas fa-file"></i>
+              <p class="sidebarfont">
+                  Customer Report
+              </p>
+            </a>
+          </li>
+         {{--  <li class="nav-item has-treeview ">
+            <a href="{{route('monthly')}}" class="nav-link {{($route == 'monthly')?'active':''}}">
+              <i class="nav-icon fas fa-folder"></i>
+              <p class="sidebarfont">
+                  Monthly Order 
+              </p>
+            </a>
+          </li> --}}
+           <li class="nav-item has-treeview ">
+            <a href="{{route('month')}}" class="nav-link {{($route == 'month')?'active':''}}">
+              <i class="nav-icon fas fa-calendar"></i>
+              <p class="sidebarfont">
+                   Monthly Transactions
+              </p>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

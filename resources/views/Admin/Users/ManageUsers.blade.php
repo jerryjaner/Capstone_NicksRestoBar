@@ -12,6 +12,7 @@
   width: 60px;
  
 }
+
 /*#example1 th{
   text-align: center;
 }*/
@@ -22,6 +23,7 @@
 /*#add_user{
   font-family: poppins;
 }*/
+
 </style>
 
   @error('email')
@@ -40,7 +42,7 @@
         </button>
       </div>
   @enderror
-   @error('password_confirmation')
+  @error('password_confirmation')
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>{{ $message }}</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -71,7 +73,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="{{route('save_user')}}" method="post" onsubmit="btn.disabled = true; return true;">
+                    <form action="{{route('save_user')}}" method="post" enctype="multipart/form-data" onsubmit="btn.disabled = true; return true;">
 
                          @csrf
 
@@ -88,6 +90,11 @@
                           <input type="text" class="form-control" name="lastname"
                                  placeholder="Last Name" 
                                  required>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Profile Picture</label>
+                          <input type="file" class="form-control" name="avatar" accept="image/*" required>
                         </div>
 
                         <div class="form-group">
@@ -118,7 +125,6 @@
                           <label> Email</label>
                           <input type="email" class="form-control" name="email" 
                                  placeholder="Email Address">
-                       
                         </div>
 
 
@@ -152,6 +158,7 @@
           <thead>
           <tr>
             <th>#</th>
+            <th>Profile Picture</th>
             <th>Full Name</th>
             <th>Purok</th>
             <th>Address</th>
@@ -177,7 +184,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="{{ route('update_staff') }}" method="post" onsubmit="btn.disabled = true; return true;">
+                    <form action="{{ route('update_staff') }}" enctype="multipart/form-data"  method="post" onsubmit="btn.disabled = true; return true;">
 
                          @csrf
 
@@ -197,6 +204,15 @@
                                  placeholder="Last Name" 
                                  value="{{ $user -> lastname }}" 
                                  required>
+                        </div>
+
+                         <div class="form-group">
+                           <label> Previous Profile</label>
+                           <img src="{{asset('BackEndSourceFile/Profile_Picture/'.$user->avatar)}}" alt="Profile Picture" width="100x" height="100px" border-radius="50%">
+                        </div>
+                        <div class="form-group">
+                             <label> New Profile Picture</label>
+                             <input type="file" class="form-control" name="avatar" accept="image/*">
                         </div>
 
                         <div class="form-group">
@@ -246,10 +262,12 @@
                </div>
              </div>
            </div>
+           
         {{-- end of edit --}}
 
           <tr>
             <td>{{$i++}}</td>
+            <td> <img src="{{asset('BackEndSourceFile/Profile_Picture/'.$user->avatar)}}" alt="Profile Picture" width="90" height="50" class="img-fluid img-thumbnail"> </td>
             <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
             <td>{{ $user -> purok }}</td>
             <td>
@@ -271,9 +289,13 @@
             <td>
 
                 @if($user -> google_id)
+
                    Google Account
+
                 @else
+
                    Nick's Resto Bar System 
+
                 @endif
 
             </td >

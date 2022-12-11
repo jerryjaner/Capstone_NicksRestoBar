@@ -14,8 +14,7 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->id();
-           
+            $table->id();      
             $table->foreignId('dish_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('order_id')->nullable()->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('dish_name');

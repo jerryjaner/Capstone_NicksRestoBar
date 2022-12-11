@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-sm-6 contact-w3lsright">
-					<h6><span>Sed interdum </span>interdum accumsan nec purus ac orci finibus facilisis. In sit amet placerat nisl in auctor sapien. </h6>
+					<h6 style="text-align: center;"><span> Contact Information </span></h6>
 					<div class="address-row">
 						<div class="col-xs-2 address-left">
 							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>

@@ -18,7 +18,7 @@
  <section class="content">
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-md-4">
+          <div class="col-md-6">
 	            <!-- About Me Box -->
 	            <div class="card card-primary">
 	              <div class="card-body box-profile">
@@ -113,7 +113,7 @@
 									  </div>
 
 									  <div class="col-12">
-									    <label for="address" class="form-label">Email</label>
+									    <label for="email" class="form-label">Email</label>
 									    <input type="text" class="form-control"
 									           placeholder="Email"
 									           name="email"
@@ -121,6 +121,7 @@
 									           required>
 									  </div>
 
+									
 									{{--    <div class="col-12">
 									    <label for="email" class="form-label">Email</label>
 									    <input class="form-control" id="email" type="email" name="email" placeholder="New Email" required>

@@ -35,7 +35,7 @@ div.dataTables_wrapper div.dataTables_length select {
                  @csrf
               <div class="form-group">
                   <label>Sender</label>
-                  <input type="text" name="sender" class="form-control" placeholder="Sender" value="Administrator" readonly>
+                  <input type="text" name="sender" class="form-control" placeholder="Sender" value="Nicks Resto Bar & Cafe Restaurant" readonly>
                 </div>
 
                 <div class="form-group">
@@ -57,8 +57,6 @@ div.dataTables_wrapper div.dataTables_length select {
 
                 </div>
 
-            
-
                 <div class="form-group">
                   <label>Message</label>
                   {{-- <input type="text" name="message" class="form-control" placeholder="Type your message . . ." required> --}}
@@ -66,7 +64,7 @@ div.dataTables_wrapper div.dataTables_length select {
                 </div>
                 
                 <div class="modal-footer">
-                  {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>  --}}
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button> 
                   <button type="submit" name="btn" class="btn btn-primary">Send</button>
                 </div>
 
@@ -84,7 +82,7 @@ div.dataTables_wrapper div.dataTables_length select {
           <th>To:</th>
           <th>Message</th>
           <th>Date</th>
-          
+            
         </tr>
       </thead>
       <tbody>
@@ -105,3 +103,9 @@ div.dataTables_wrapper div.dataTables_length select {
 
 
 @endsection
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    
+  });
+</script>

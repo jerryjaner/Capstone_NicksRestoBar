@@ -21,6 +21,7 @@ class FeedbackController extends Controller
 
             'message' => 'Feedback Deleted Successfully',
             'alert-type' =>'error'
+        
         );
 
         return back()->with($notification);

@@ -2,8 +2,7 @@
     $prefix = Request::route()->getPrefix();
     $route = Route::current()->getName();
 
-	  if(Auth::check())
-      {
+	  if(Auth::check()){
 		 $unread_msg = \App\Models\Message::where('customer_email', Auth::user()->email)
 	 									  ->where('message_status','unread')->count();
 	  }
@@ -198,7 +197,7 @@
 		<!-- banner-text -->
 		<div class="banner-text">	
 			<div class="container">
-			 <h2 style="font-family: Poppins; color: white; letter-spacing: 3px; font-size: 30px; line">We provide happiness through delicious food <br> <span style="font-family: Poppins; color: white;">and will comfort you </span></h2>
+			 <h2 style="font-family: Poppins; color: white; letter-spacing: 3px;">"We provide happiness through delicious food and will comfort you"</h2>
 				<!--<h2>We Provide happiness<br> <span> though our  delicous food and will comfort you. </span></h2>-->
 				{{-- <div class="agileits_search">
 					<form action="#" method="post">

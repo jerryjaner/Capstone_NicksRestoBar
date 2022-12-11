@@ -60,6 +60,7 @@ class RegisterController extends Controller
             'phone_number' => ['required', 'string', 'min:8','max:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+         
         ]);
     }
 
@@ -70,11 +71,18 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
+    {   
+        if(request()->hasfile('avatar')){
+            $avatarName = time().'.'.request()->avatar->getClientOriginalExtension();
+            request()->avatar->move(public_path('/BackEndSourceFile/Profile_Picture/'),$avatarName);
+        }
+        
         return User::create([
             'name' => $data['name'],
             // 'middlename' => $data['middlename'],
+
             'lastname' => $data['lastname'],
+            'avatar' => $avatarName ?? NULL,
             'purok' => $data['purok'],
             'address' => $data['address'],
             'phone_number' => $data['phone_number'],

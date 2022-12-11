@@ -1,7 +1,8 @@
 @extends('Admin.master')
 @section('title')
 
-Report of Customer
+  Report of Customer
+
 @endsection
 @section('content')
 
@@ -35,7 +36,7 @@ Report of Customer
                       <th>Address</th>
                       <th>Phone Number</th>
                       <th>Email</th>
-                      <th>Date</th>
+                      <th>Date Created</th>
                       <th>Logged in Using</th>
                       <th>Role</th>
                      </tr>

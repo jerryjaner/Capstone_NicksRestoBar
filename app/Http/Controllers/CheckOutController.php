@@ -24,6 +24,7 @@ class CheckOutController extends Controller
         {
             // check if the cart is empty or not. If empty the user redirect back
             if(count($CartDish) > 0){
+
                  $ShipFees =  shippingfee::all();
                  return view('User.CheckOut.CheckOutField',compact('ShipFees') );
             }
@@ -90,6 +91,7 @@ class CheckOutController extends Controller
                         $orderDetails -> save();
 
                      }
+
                      Cart::destroy();
                      
                       $notification = array (
@@ -194,7 +196,6 @@ class CheckOutController extends Controller
     	}
     }
   
-
     public function complete(){
 
          if(Auth::check())

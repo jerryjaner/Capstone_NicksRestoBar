@@ -13,7 +13,7 @@
 
 	<div class="login-page about">
 
-		<img class="login-w3img" src="{{asset('FrontEndSourceFile')}}/images/img3.jpg" alt="">
+	{{-- 	<img class="login-w3img" src="{{asset('FrontEndSourceFile')}}/images/img3.jpg" alt=""> --}}
 		<div class="container"> 
 			<h3 class="w3ls-title w3ls-title1">Customer Profile</h3>  
 			
@@ -45,8 +45,8 @@
  				<div class="wthreelogin-text">
 						<center>
 		                  <img class="profile-user-img img-fluid img-circle"
-		                      src="{{asset('/BackEndSourceFile')}}/dist/img/user4-128x128.jpg"
-		                       alt="User profile picture"> 
+		                      src="{{asset('BackEndSourceFile/Profile_Picture/'.$CustomerProfile->avatar)}}"
+		                       alt="User profile picture" style="width:150px; height: 150px;"> 
 		                 </center><br>
 
 		                <h3 class="profile-username text-center">{{$CustomerProfile -> name}}</h3>
@@ -90,27 +90,37 @@
 									</div>
 							
 										<div class="modal-body">
-										    <form action="{{ route('customer_update') }}" method="POST" onsubmit="btn.disabled = true; return true;">
+										    <form action="{{ route('customer_update') }}" enctype="multipart/form-data" method="POST" onsubmit="btn.disabled = true; return true;">
 
 										    	@csrf
 
 										    	<input type="hidden" class="form-control"  name="id" value="{{$CustomerProfile -> id}}">
 										      
-										      	<input class="agile-ltext" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Enter your First Name" required>
+										      	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Firstname" required>
 	   	
-										      	<input class="agile-ltext" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Enter your Last Name" required>
+										      	<input class="form-control" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Lastname" required>
 
-										      	<input class="agile-ltext" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
+										      	<input class="form-control" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
 
-										      	<input class="agile-ltext" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
-
-										      	<input class="agile-ltext @error('phone_number') is-invalid @enderror" type="text" name="phone_number" value="{{$CustomerProfile -> phone_number}}" placeholder="Phone Number" required>
+										      	<input class="form-control" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
 
 
-										      	<input class="agile-ltext" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
+
+										      	<input class="form-control" pattern="[0-9]{11}"  name="phone_number" 
+									      			   placeholder="Phone Number Ex: 098966*****" value="{{$CustomerProfile -> phone_number}}" required style="margin-top: 8%; border-color: #999999"
+									      			   min="11"
+                                					   max="11"
+									      			   oninvalid="this.setCustomValidity('Make sure to follow the pattern EX: 097055*****')"
+									      			   oninput="this.setCustomValidity('')">
+
+										      	<input class="form-control" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
 										      	 
-
-										      	<div class="modal-footer">
+									             <input type="file" class="form-control " id="exampleInputFile"  name="avatar" accept="image/*" style="margin-top: 8%; border-color: #999999" >
+									             <label>New Profile Picture</label>
+									             
+										      	
+										      
+										      	<div class="modal-footer" style="margin-top: 5%;">
 											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 											        <button type="submit" name="btn" class="btn btn-primary">Save changes</button>
 											    </div>

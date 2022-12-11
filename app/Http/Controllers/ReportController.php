@@ -50,11 +50,7 @@ class ReportController extends Controller
         ->select('orders.*','orders.created_at','users.name','users.middlename','users.lastname')
         ->whereDate('orders.created_at', '>=', $fromdate)
         ->whereDate('orders.created_at', '<=', $todate)
-        
-        //->whereBetween('orders.created_at', [$request->fromdate, $request -> todate])
         ->get();
-
-       // dd($orders);
 
         return view('Admin.Report.Month',compact('orders'));
 

@@ -12,6 +12,7 @@ use App\Models\Feedback;
 use Cart;
 use DB;
 use Session;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -242,7 +243,24 @@ class UserController extends Controller
       $customer_profile -> purok = $request -> purok;
       $customer_profile -> address = $request -> address;
       $customer_profile -> phone_number = $request -> phone_number;
-       $customer_profile -> email = $request -> email;
+      $customer_profile -> email = $request -> email;
+
+      if($request -> hasfile('avatar'))
+      {
+        $destination = 'BackEndSourceFile/Profile_Picture/'.$customer_profile ->avatar;
+
+        if(File::exists($destination))
+        {
+          File::delete($destination);
+        }
+        $file = $request ->file('avatar');
+        $extention = $file->getClientOriginalExtension();
+        $filename = time ().'.'.$extention;
+        $file->move('BackEndSourceFile/Profile_Picture/',$filename);
+
+        $customer_profile->avatar =$filename;
+      }
+
       $customer_profile->save();
 
         $notification = array (

@@ -17,20 +17,8 @@ class MessageController extends Controller
 
     public function new_message(Request $request){
 
-    	// $user = Auth::user();
-
-    	// $msg = new Message();
-    	// $msg -> sender = $request -> sender;
-    	// $msg -> customer_email = $request -> customer_email;
-    	// $msg -> message = $request -> message;
-    	// $msg -> save();
-
-
-    	// return back()->with('added_msg','Message Sent!');
+    	
         $user = Auth::user();
-        
-
-        
         if($request -> customer_email == $user->email){
 
             $notification = array (
@@ -43,10 +31,12 @@ class MessageController extends Controller
         }
   
 
-        $msg = Message::create([             
+        $msg = Message::create([ 
+
           'message' => $request->input('message'),
           'sender' => $request-> sender,
           'customer_email' => $request-> customer_email,
+          
           ]);    
 
         // return($msg);

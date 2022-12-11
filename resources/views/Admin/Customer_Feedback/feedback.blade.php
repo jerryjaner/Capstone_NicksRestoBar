@@ -3,12 +3,12 @@
 
   Customer Feedback
  @endsection
- @section('content')
+@section('content')
 
 
   <div class="card my-2">
     <div class="card-header">
-      <h3 class="card-title" id="messagefont"><b>Customer Feedback</b></h3>
+      <h3 class="card-title"><b>Customer Feedback</b></h3>
     </div>
 
     <div class="card-body">
@@ -37,6 +37,7 @@
 	     	</td>
 	     </tr>    
 	     @endforeach
+	     
        </tbody>    
       </table>
     </div>

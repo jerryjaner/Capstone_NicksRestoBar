@@ -33,9 +33,9 @@ GOOGLE_CLIENT_SECRET="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"
 
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::middleware(['middleware'=>'PreventBackHistory'])->group (function(){
 

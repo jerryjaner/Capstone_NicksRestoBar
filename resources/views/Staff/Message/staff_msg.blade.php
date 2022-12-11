@@ -35,7 +35,7 @@ div.dataTables_wrapper div.dataTables_length select {
                  @csrf
               <div class="form-group">
                   <label>Sender</label>
-                  <input type="text" name="sender" class="form-control" placeholder="Sender" value="Nicks Resto Staff" readonly>
+                  <input type="text" name="sender" class="form-control" placeholder="Sender" value="Nicks Resto Bar & Cafe Restaurant" readonly>
                 </div>
 
                 <div class="form-group">
