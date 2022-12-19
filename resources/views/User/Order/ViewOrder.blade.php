@@ -63,10 +63,15 @@
 
              @else
 
-             
-             
-             
+              @if($order -> google_id == null)
+
                <td style="text-align: center; color:  black;">{{$order->name}} {{$order->middlename}} {{$order -> lastname}}</td>
+
+              @else
+
+               <td style="text-align: center; color:  black;">{{$order->google_name}}</td>
+
+              @endif
                <td style="text-align: center; color:  black;">{{$order->order_total}}</td>
                <td style="text-align: center; color:  black;">{{$order->order_status}} </td>
                <td style="text-align: center; color:  black;">

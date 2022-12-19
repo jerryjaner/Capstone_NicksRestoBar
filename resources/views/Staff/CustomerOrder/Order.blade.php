@@ -39,6 +39,7 @@
                       <th style="text-align: center;">#</th>
                       <th style="text-align: center;">Customer Name</th>
                       <th style="text-align: center;">TotalOrder Price</th>
+                      <th style="text-align: center;">Shipping Fee</th>
                       <th style="text-align: center;">Order Status</th>
                       <th style="text-align: center;">Order Date</th>
                       <th style="text-align: center;">Payment Type</th>
@@ -96,9 +97,23 @@
 
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$order-> name}} {{$order -> lastname}}</td>
-                    <td>{{$order-> order_total}}</td>
-                    <td>{{$order-> order_shippingfee}}</td>
+
+                    @if($order -> google_id == null)
+
+                         <td>{{$order-> name}} {{$order -> lastname}}</td>
+
+                    @else
+                         <td>{{$order-> google_name}}</td>
+                    @endif
+
+                    <td>₱ {{$order-> order_total}}</td>
+
+                    @if($order -> payment_type =='Cash_on_Pickup')
+                      <td>₱ 0 </td>
+                    @else
+                      <td>₱ {{$order -> order_shippingfee }}</td>
+                    @endif
+                    
                     <td>
                       @if($order->order_status =='pending')
 

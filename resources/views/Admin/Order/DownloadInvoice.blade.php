@@ -136,7 +136,16 @@
                                 </td>
                                 <td>
                                     Invoice #: <strong>{{$order -> id}}</strong> <br/>
-                                    Order Date: <strong>{{\Carbon\Carbon::parse($order->created_at)->toFormattedDateString() }}</strong>    
+                                    Order Date: <strong>{{\Carbon\Carbon::parse($order->created_at)->toFormattedDateString() }}</strong><br/>
+                                    @if($payment -> payment_type == 'Cash_on_Delivery')
+
+									Payment Method: <strong> Cash On Delivery </strong>
+
+									@elseif($payment -> payment_type == 'Cash_on_Pickup')
+
+									Payment Method: <strong> Cash On Pickup </strong>
+									   
+									@endif    
                                 </td>
                             </tr>
                         </table>
@@ -153,20 +162,17 @@
                                     09706677438
                                 </td>
                                 <td><span style="margin-right: 200px">To:</span><br/>
-                                    <strong>{{$customer -> name}} {{$customer -> lastname}}</strong><br/>
-                                    {{$shipping -> purok}}<br/>
-                                    {{$shipping -> address}}<br/>
-                                    {{$shipping -> email}}<br/>
-                                    {{$shipping -> phone_no}}<br/>
-                                    @if($payment -> payment_type == 'Cash_on_Delivery')
+                                	@if($customer -> google_id == null)
+	                                    <strong>{{$customer -> name}} {{$customer -> lastname}}</strong><br/>
+	                                @else
+	                               	    <strong>{{$customer -> google_name}}</strong><br/>
+	                                @endif
+	                                    {{$shipping -> purok}}<br/>
+	                                    {{$shipping -> address}}<br/>
+	                                    {{$shipping -> email}}<br/>
+	                                    {{$shipping -> phone_no}}<br/>
 
-									   <strong> Cash On Delivery </strong>
-
-									@elseif($payment -> payment_type == 'Cash_on_Pickup')
-
-									   <strong> Cash On Pickup </strong>
-									   
-									@endif
+                                   
                                 </td>
                             </tr>
                         </table>

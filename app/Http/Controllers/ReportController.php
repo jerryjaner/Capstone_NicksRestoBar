@@ -34,7 +34,7 @@ class ReportController extends Controller
         
          $orders = DB::table('orders')
          ->join('users','orders.user_id','=', 'users.id')
-         ->select('orders.*', 'users.name','users.middlename','users.lastname')
+         ->select('orders.*', 'users.name','users.middlename','users.lastname','users.google_id','users.google_name')
          ->get();
          return view('Admin.Report.Month', compact('orders'));
 
@@ -47,7 +47,7 @@ class ReportController extends Controller
 
         $orders = DB::table('orders')
         ->join('users','orders.user_id','=', 'users.id')
-        ->select('orders.*','orders.created_at','users.name','users.middlename','users.lastname')
+        ->select('orders.*','orders.created_at','users.name','users.middlename','users.lastname','users.google_name','users.google_id')
         ->whereDate('orders.created_at', '>=', $fromdate)
         ->whereDate('orders.created_at', '<=', $todate)
         ->get();
@@ -69,7 +69,7 @@ class ReportController extends Controller
 
         $orders = DB::table('orders')
         ->join('users','orders.user_id','=', 'users.id')
-        ->select('orders.*', 'orders.created_at','users.name','users.middlename','users.lastname')
+        ->select('orders.*', 'orders.created_at','users.name','users.middlename','users.lastname','users.google_id','users.google_name')
         ->get();
 
         $pdf = PDF::loadView('Admin.Report.filter',compact('orders'));

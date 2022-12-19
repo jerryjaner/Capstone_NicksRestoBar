@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Download Client Report</title>
   <style>
     #example1{
       font-family: arial ,helvetica, sans-serif;
@@ -52,8 +52,14 @@
              
 
             <tr>
-              <td>{{$i++}}</td>                
+              <td>{{$i++}}</td> 
+
+              @if($user -> google_id == null)               
               <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+              @else
+               <td>{{ $user -> googe_name }}</td>
+              @endif
+
               <td>{{ $user -> purok }}</td>
               <td>
                    @if($user->address == null)

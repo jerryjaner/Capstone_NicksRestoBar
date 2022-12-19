@@ -14,8 +14,12 @@
 
 				<div class="card ">
 					<div class="card-header text-muted ">
-						<h3 style="margin-top: 20px;">Dear {{ Auth::user()->name }}. </h3> <br>
-						<h4 class="text-center" style="color: red">We've to Know which payment method you want.</h4>
+						@if(Auth::user()->google_id == null)
+							<h3 style="margin-top: 20px;">Dear {{ Auth::user()->name }}  {{ Auth::user()->lastname }}. </h3> <br>
+						@else
+							<h3 style="margin-top: 20px;">Dear {{ Auth::user()->google_name }}. </h3> <br>
+						@endif
+							<h4 class="text-center" style="color: red">We've to Know which payment method you want.</h4>
 						 
 					</div>
 					<div class="card mt-4">

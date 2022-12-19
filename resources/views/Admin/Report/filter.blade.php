@@ -45,13 +45,17 @@
             <tbody>
 
              @php($i = 1)
-              @foreach($orders as $order)
+              @foreach($orders as $filtered)
             
                 <tr>
                    <td style="font-family: poppins">{{$i++}}</td>
-                   <td style="font-family: poppins">{{$order -> name}} {{$order -> middlename}} {{$order -> lastname}}</td>
-                   <td style="font-family: poppins">{{ $order -> order_total}} Pesos</td>
-                   <td style="font-family: poppins">{{\Carbon\Carbon::parse($order->created_at)->Format('m-d-Y')}}</td>
+                   @if($filtered -> google_id == null)
+                   <td style="font-family: poppins">{{$filtered -> name}} {{$filtered -> middlename}} {{$filtered -> lastname}}</td>
+                   @else
+                    <td style="font-family: poppins">{{$filtered -> google_name}}</td>
+                   @endif
+                   <td style="font-family: poppins">{{ $filtered -> order_total}} Pesos</td>
+                   <td style="font-family: poppins">{{\Carbon\Carbon::parse($filtered->created_at)->Format('m-d-Y')}}</td>
                 </tr>
              
               @endforeach

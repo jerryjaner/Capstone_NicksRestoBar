@@ -77,12 +77,16 @@
 								</div>
 
 								<div class="col-sm-4">
-									<h5 class="mb-3"  id="invoicefont"><strong>To:</strong></h5>
-									<div>Name: <strong>{{$customer -> name}} {{$customer -> lastname}}</strong></div>
-									<div>Purok: {{$shipping -> purok}}</div>
-								    <div>Address: {{$shipping -> address}}</div>
-									<div>Email: {{$customer -> email}}</div>
-									<div>Phone: {{$shipping -> phone_no}}</div>
+										<h5 class="mb-3"  id="invoicefont"><strong>To:</strong></h5>
+									@if($customer -> google_id == null)
+										<div>Name: <strong>{{ $customer -> name }} {{$customer -> lastname}}</strong></div>
+									@else
+										<div>Name: <strong>{{ $customer -> google_name }} </strong></div>
+									@endif
+										<div>Purok: {{$shipping -> purok}}</div>
+									    <div>Address: {{$shipping -> address}}</div>
+										<div>Email: {{$customer -> email}}</div>
+										<div>Phone: {{$shipping -> phone_no}}</div>
 								</div>
 
 								<div class="col-sm-4">

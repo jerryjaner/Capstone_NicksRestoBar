@@ -24,7 +24,7 @@ class OrderController extends Controller
     	$orders = DB::table('orders')
     		->join('users','orders.user_id','=', 'users.id')
     		->join('payments','orders.id','=', 'payments.order_id')      
-    		->select('orders.*', 'users.name','users.middlename','users.lastname' ,'payments.payment_type','payments.payment_status')
+    		->select('orders.*', 'users.name','users.middlename','users.lastname','users.google_id','users.google_name','payments.payment_type','payments.payment_status')
     		->get();
             
     	return view('Admin.Order.ManageOrder',compact('orders'));

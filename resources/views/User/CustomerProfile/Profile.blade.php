@@ -49,15 +49,24 @@
 		                       alt="User profile picture" style="width:150px; height: 150px;"> 
 		                 </center><br>
 
-		                <h3 class="profile-username text-center">{{$CustomerProfile -> name}}</h3>
-			            <p class="text-muted text-center"><b>Customer Name</b></p> <br> <br>
-		      
-		           		
-		           		<h4><b>Name:</b> {{$CustomerProfile -> name}} {{$CustomerProfile -> lastname}}  </h4><hr>
-		              	<h4><b>Email:</b> {{$CustomerProfile -> email}}  </h4><hr> 
-		           	   	<h4><b>Purok:</b> {{$CustomerProfile -> purok}} </h4><hr>
-			          	<h4><b>Address:</b> {{$CustomerProfile -> address}} </h4><hr>
-			          	<h4><b>Phone Number:</b> {{$CustomerProfile -> phone_number}} </h4><hr>
+
+		                
+		      			
+		      			@if($CustomerProfile -> google_id == null)
+		           		   <h3 class="profile-username text-center">{{$CustomerProfile -> name}} {{ $CustomerProfile -> lastname }}</h3>
+			               <p class="text-muted text-center"></b></p> <br> <br>
+		           		   <h4><b>Name:</b> {{$CustomerProfile -> name}} {{$CustomerProfile -> lastname}}  </h4><hr>
+
+		           		@else
+		           			<h3 class="profile-username text-center">{{$CustomerProfile -> google_name}} </h3>
+			                <p class="text-muted text-center"></b></p> <br> <br>
+		           			<h4><b>Name:</b> {{$CustomerProfile -> google_name}}  </h4><hr>
+
+		           		@endif
+			              	<h4><b>Email:</b> {{$CustomerProfile -> email}}  </h4><hr> 
+			           	   	<h4><b>Purok:</b> {{$CustomerProfile -> purok}} </h4><hr>
+				          	<h4><b>Address:</b> {{$CustomerProfile -> address}} </h4><hr>
+				          	<h4><b>Phone Number:</b> {{$CustomerProfile -> phone_number}} </h4><hr>
 			        
 			         
 			          {{--   <button class="btn btn-info" style="float:right;" data-bs-toggle="modal" data-bs-target="#edit{{$CustomerProfile->id}}" data-bs-whatever="@fat">
@@ -97,39 +106,41 @@
 										    	<input type="hidden" class="form-control"  name="id" value="{{$CustomerProfile -> id}}">
 										      	
 
-										      	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Fullname" required>
-
 										      	@if($CustomerProfile -> google_id == null)
 
-										      	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Firstname" required>
+										        	<input class="form-control" type="text" name="name" value="{{$CustomerProfile -> name}}" placeholder="Firstname" required>
 	   	
-										      	<input class="form-control" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Lastname" required>
+										          	<input class="form-control" type="text" name="lastname" value="{{$CustomerProfile -> lastname}}" placeholder="Lastname" required>
+										      	@else
+
+										      	    <input class="form-control" type="text" name="google_name" value="{{$CustomerProfile -> google_name}}" placeholder="Fullname" required>
+
 										      	@endif
 
-										      	<input class="form-control" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
+											      	<input class="form-control" type="text" name="purok" value="{{$CustomerProfile -> purok}}" placeholder="Purok" required>
 
-										      	<input class="form-control" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
+											      	<input class="form-control" type="text" name="address" value="{{$CustomerProfile -> address}}" placeholder="Address" required>
 
 
 
-										      	<input class="form-control" pattern="[0-9]{11}"  name="phone_number" 
-									      			   placeholder="Phone Number Ex: 098966*****" value="{{$CustomerProfile -> phone_number}}" required style="margin-top: 8%; border-color: #999999"
-									      			   min="11"
-                                					   max="11"
-									      			   oninvalid="this.setCustomValidity('Make sure to follow the pattern EX: 097055*****')"
-									      			   oninput="this.setCustomValidity('')">
+											      	<input class="form-control" pattern="[0-9]{11}"  name="phone_number" 
+										      			   placeholder="Phone Number Ex: 098966*****" value="{{$CustomerProfile -> phone_number}}" required style="margin-top: 8%; border-color: #999999"
+										      			   min="11"
+	                                					   max="11"
+										      			   oninvalid="this.setCustomValidity('Make sure to follow the pattern EX: 097055*****')"
+										      			   oninput="this.setCustomValidity('')">
 
-										      	<input class="form-control" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
-										      	
-									             <input type="file" class="form-control " id="exampleInputFile"  name="avatar" accept="image/*" style="margin-top: 8%; border-color: #999999" >
-									             <label>New Profile Picture</label>
-									             
-										      	
-										      
-										      	<div class="modal-footer" style="margin-top: 5%;">
-											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											        <button type="submit" name="btn" class="btn btn-primary">Save changes</button>
-											    </div>
+											      	<input class="form-control" id="email" type="email" name="email" placeholder="Email" value="{{ $CustomerProfile -> email }}">
+											      	
+										             <input type="file" class="form-control " id="exampleInputFile"  name="avatar" accept="image/*" style="margin-top: 8%; border-color: #999999" >
+										             <label>New Profile Picture</label>
+										             
+											      	
+											      
+											      	<div class="modal-footer" style="margin-top: 5%;">
+												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												        <button type="submit" name="btn" class="btn btn-primary">Save changes</button>
+												    </div>
 				  							    
 										      </div>
 											  

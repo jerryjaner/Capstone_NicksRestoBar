@@ -46,32 +46,44 @@
                   @php($i = 1)
                   @foreach($users  as $user)
 
-                    
                     <tr>
-                      <td>{{$i++}}</td>
-                      <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
-                      <td>{{ $user -> purok }}</td>
-                      <td>
-                        @if($user->address == null)
 
-                            N/A
+                        <td>{{$i++}}</td>
+                        @if($user -> google_id == null)
+
+                        <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
 
                         @else
-                          {{$user->address}}
 
+                        <td>{{ $user -> google_name }}</td>
+                        
                         @endif
-                      </td>
-                      <td>{{ $user -> phone_number }}</td>
-                      <td>{{$user -> email}}</td>
-                      <td>{{\Carbon\Carbon::parse($user->created_at)->toFormattedDateString() }}</td>
-                      <td>
-                        @if($user -> google_id)
-                           Google Account
-                        @else
-                           Nick's Resto Bar System 
-                        @endif
-                      </td>
-                      <td> Customer </td>
+
+                        <td>{{ $user -> purok }}</td>
+                        <td>
+
+                          @if($user->address == null)
+
+                              N/A
+
+                          @else
+
+                            {{$user->address}}
+
+                          @endif
+
+                        </td>
+                        <td>{{ $user -> phone_number }}</td>
+                        <td>{{$user -> email}}</td>
+                        <td>{{\Carbon\Carbon::parse($user->created_at)->toFormattedDateString() }}</td>
+                        <td>
+                          @if($user -> google_id)
+                             Google Account
+                          @else
+                             Nick's Resto Bar System 
+                          @endif
+                        </td>
+                        <td> Customer </td>
                    </tr>
                   
                 @endforeach

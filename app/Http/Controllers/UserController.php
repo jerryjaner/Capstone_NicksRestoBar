@@ -23,7 +23,6 @@ class UserController extends Controller
    public function index(){
    	 //	$categories = Category::where('category_status', 1) -> get();
 
-     
      $most_sold = DB::table('dishes')
       ->leftJoin('order_details','dishes.id', '=', 'order_details.dish_id')
       ->selectRaw('dishes.id, SUM(order_details.dish_qty) as total')
@@ -100,21 +99,42 @@ class UserController extends Controller
       
       if(Auth::check())
       {
-        $shipping = new Shipping();
-        $shipping->name = $request -> name;
-        $shipping->email = $request -> email;
-        $shipping->phone_no = $request -> phone_no;
-        $shipping -> purok = $request -> purok;
-        $shipping->address = $request -> address;
+        if(Auth::user()->google_id == null){
+
+          $shipping = new Shipping();
+          $shipping->name = $request -> name;
+          $shipping->email = $request -> email;
+          $shipping->phone_no = $request -> phone_no;
+          $shipping -> purok = $request -> purok;
+          $shipping->address = $request -> address;
+
+        // return $shipping;
         $shipping -> save();
 
         Session::put('shipping_id', $shipping -> id);
         return redirect() -> route('Checkout_payment');
+        }
+        else {
+          $shipping = new Shipping();
+          $shipping->name = $request -> google_name;
+          $shipping->email = $request -> email;
+          $shipping->phone_no = $request -> phone_no;
+          $shipping -> purok = $request -> purok;
+          $shipping->address = $request -> address;
+
+        //return $shipping;
+        $shipping -> save();
+
+        Session::put('shipping_id', $shipping -> id);
+        return redirect() -> route('Checkout_payment');
+        }
+         
       }
       else{
 
         return back();
       }
+        
    
     }
 
@@ -146,7 +166,7 @@ class UserController extends Controller
         $orders = DB::table('orders')
           ->join('users','orders.user_id','=', 'users.id')
           ->join('payments','orders.id','=', 'payments.order_id')
-          ->select('orders.*', 'users.name','users.middlename','users.lastname' ,'payments.payment_type','payments.payment_status')
+          ->select('orders.*', 'users.name','users.middlename','users.lastname','users.google_name','users.google_id','payments.payment_type','payments.payment_status')
           ->get();
   
         return view('User.Order.ViewOrder',compact('orders'));
@@ -240,6 +260,7 @@ class UserController extends Controller
       $customer_profile->name = $request->name;
       // $customer_profile->middlename = $request->middlename;
       $customer_profile->lastname = $request->lastname;
+      $customer_profile-> google_name =$request -> google_name;
       $customer_profile -> purok = $request -> purok;
       $customer_profile -> address = $request -> address;
       $customer_profile -> phone_number = $request -> phone_number;

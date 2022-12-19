@@ -19,6 +19,7 @@ class MessageController extends Controller
 
     	
         $user = Auth::user();
+
         if($request -> customer_email == $user->email){
 
             $notification = array (
@@ -29,7 +30,7 @@ class MessageController extends Controller
 
             return back()->with($notification);
         }
-  
+        
 
         $msg = Message::create([ 
 

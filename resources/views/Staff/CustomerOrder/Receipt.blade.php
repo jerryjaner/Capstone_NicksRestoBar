@@ -154,11 +154,16 @@
                                     09706677438
                                 </td>
                                 <td><span style="margin-right: 200px">To:</span><br/>
-                                    <strong>{{$customer -> name}} {{$customer -> lastname}}</strong><br/>
-                                    {{ $shipping -> purok }}
-                                    {{$shipping -> address}}<br/>
-                                    {{$shipping -> email}}<br/>
-                                    {{$shipping -> phone_no}}<br/>
+
+                                	@if($customer -> google_id == null)
+	                                    <strong>{{$customer -> name}} {{$customer -> lastname}}</strong><br/>
+	                                @else
+	                                	<strong>{{$customer -> google_name}}</strong><br/>
+	                                @endif
+	                                    {{ $shipping -> purok }}
+	                                    {{$shipping -> address}}<br/>
+	                                    {{$shipping -> email}}<br/>
+	                                    {{$shipping -> phone_no}}<br/>
                                     @if($payment -> payment_type == 'Cash_on_Delivery')
 
 									   <strong> Cash On Delivery </strong>

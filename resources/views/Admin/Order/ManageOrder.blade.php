@@ -89,10 +89,25 @@
         </div>
 
         <tr>
-          <td>{{$i++}}</td>
-          <td>{{$order-> name}}  {{$order -> lastname}}</td>
-          <td>₱ {{$order-> order_total}}</td>
-          <td>₱ {{$order -> order_shippingfee }}</td>
+            <td>{{$i++}}</td>
+
+          @if($order -> google_id == null)
+
+           <td>{{$order-> name}}  {{$order -> lastname}}</td>
+
+          @else
+
+            <td>{{ $order -> google_name }}</td>
+
+          @endif
+
+            <td>₱ {{$order-> order_total}}</td>
+
+          @if($order -> payment_type =='Cash_on_Pickup')
+            <td>₱ 0 </td>
+          @else
+            <td>₱ {{$order -> order_shippingfee }}</td>
+          @endif
           <td>
 
             @if($order->order_status =='pending')

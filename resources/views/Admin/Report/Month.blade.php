@@ -57,7 +57,7 @@
 	                      </div>
 	                     
 	                      <div class="modal-footer">
-	                      {{--   <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  --}}
+	                        <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
 	                        <button  type="submit" name="btn" class="btn btn-primary">Apply Filter</button>
 	                      </div>
 	                </form>
@@ -88,9 +88,18 @@
 	      	<tr>
 
 	      	{{-- 	<td>{{$i++}}</td> --}}
-	      		<td>{{\Carbon\Carbon::parse($ReportOrder->created_at)->toFormattedDateString()}}</td>
-	      		<td>{{$ReportOrder -> name}} {{$ReportOrder -> middlename}} {{$ReportOrder -> lastname}}</td>
-	      		<td>{{ $ReportOrder -> order_total}} Pesos</td>
+	      			<td>{{\Carbon\Carbon::parse($ReportOrder->created_at)->toFormattedDateString()}}</td>
+	      			
+	      		@if($ReportOrder -> google_id == null)
+
+	      			<td>{{$ReportOrder -> name}} {{$ReportOrder -> middlename}} {{$ReportOrder -> lastname}}</td>
+
+	      		@else
+
+	      			<td>{{ $ReportOrder -> google_name }}</td>
+
+	      		@endif
+	      			<td>{{ $ReportOrder -> order_total}} Pesos</td>
 	      		
 
 	      	</tr>

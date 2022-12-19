@@ -116,23 +116,32 @@
 
 										  @if(Auth::check())					  
 
-											  <li class="head-dpdn">
-												<a href="{{ route('customer_profile') }}" ><i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
-											  </li> 
+										  	    @if(Auth::user()->google_id == null)
+												  <li class="head-dpdn">
+													<a href="{{ route('customer_profile') }}" ><i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}</a>
+												  </li> 
 
-											   <li class="head-dpdn">
-											     <a href="{{ route('notification') }}">
-											     	<i class="fa fa-bell" aria-hidden="true"></i> 
-											     
-											     	Notification 
-											     	<span class="badge badge-danger" title="Unread Message">{{ $unread_msg }} </span>
+												@else
 
-											     </a>
-											  </li>  
-											  
-											  <li class="head-dpdn">
-											     <a href="{{route('customer_order')}}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> View Order</a>
-											  </li>  
+												  <li class="head-dpdn">
+													<a href="{{ route('customer_profile') }}" ><i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->google_name }}</a>
+												  </li> 
+
+												@endif
+
+												   <li class="head-dpdn">
+												     <a href="{{ route('notification') }}">
+												     	<i class="fa fa-bell" aria-hidden="true"></i> 
+												     
+												     	Notification 
+												     	<span class="badge badge-danger" title="Unread Message">{{ $unread_msg }} </span>
+
+												     </a>
+												  </li>  
+												  
+												  <li class="head-dpdn">
+												     <a href="{{route('customer_order')}}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> View Order</a>
+												  </li>  
 											
 										  @else
 
@@ -198,6 +207,8 @@
 		<div class="banner-text">	
 			<div class="container">
 			 <h2 style="font-family: Poppins; color: white; letter-spacing: 3px;">"We provide happiness through delicious food and will comfort you"</h2>
+			
+		
 				<!--<h2>We Provide happiness<br> <span> though our  delicous food and will comfort you. </span></h2>-->
 				{{-- <div class="agileits_search">
 					<form action="#" method="post">
@@ -218,26 +229,23 @@
 		</div>
 	</div>
 
-	<script>
-		
-		
-	$(document).ready(function() {	
-		loadcart();
-		function loadcart(){
-			$.ajax({
-				method: "GET",
-				url: "/load-cart-data",
-				success: function(response){
-
-					$('.Cart-Count').html('');
-					$('.Cart-Count').html(response.count);
-					console.log(response.count)
-				}
-			});
-		}
+<script>
 
 
+$(document).ready(function() {	
+	loadcart();
+	function loadcart(){
+		$.ajax({
+			method: "GET",
+			url: "/load-cart-data",
+			success: function(response){
 
-		
-	});
-	</script>
+				$('.Cart-Count').html('');
+				$('.Cart-Count').html(response.count);
+				console.log(response.count)
+			}
+		});
+	}
+	
+});
+</script>

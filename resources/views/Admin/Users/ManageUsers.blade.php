@@ -266,9 +266,15 @@
         {{-- end of edit --}}
 
           <tr>
-            <td>{{$i++}}</td>
-            <td> <img src="{{asset('BackEndSourceFile/Profile_Picture/'.$user->avatar)}}" alt="Profile Picture" width="90" height="50" class="img-fluid img-thumbnail"> </td>
-            <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
+
+             <td>{{$i++}}</td>
+             <td> <img src="{{asset('BackEndSourceFile/Profile_Picture/'.$user->avatar)}}" alt="Profile Picture" width="90" height="50" class="img-fluid img-thumbnail"> </td>
+
+            @if($user->google_id == null)
+              <td>{{ $user -> name}} {{ $user -> middlename}} {{ $user -> lastname}}</td>
+            @else
+              <td>{{ $user -> google_name }}</td>
+            @endif
             <td>{{ $user -> purok }}</td>
             <td>
 
@@ -277,7 +283,7 @@
                     N/A
                     
                 @else
-                  {{$user->address}}
+                  {{ $user -> address}}
 
                 @endif
                 
