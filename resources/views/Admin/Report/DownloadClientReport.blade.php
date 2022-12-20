@@ -4,34 +4,61 @@
   <title>Download Client Report</title>
   <style>
     #example1{
-      font-family: arial ,helvetica, sans-serif;
+      font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
+
 
     }
     #example1 td, #example1 th {
       border: 1px solid #ddd;
       padding: 8px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
     }
     #example1 tr:nth-child(even){
-      background-color: #ddd;
+      /*background-color: #ddd;*/
     }
 
     #example1 th{
-      padding-top: 12px;
+      padding-top: 3px;
       padding-bottom: 12px;
       text-align: center;
       background-color: #E74844;
       color:white;
     }
+    .header{
+      text-align: center;
+    }
+    .header img{
+      float:left;
+      margin-left: 20%;
+    }
+    .header h4{
+      position: relative;
+      margin-right: 25%;
+      line-height: 0.9px;
+      font-family: 'Poppins', sans-serif;
+    }
+    h1{
+      font-family: 'Poppins', sans-serif;
+    } 
+
   </style>
 </head>
 <body>
     <div class="card my-2">
         <div class="card-body">
+          <div class="header">
+            <div class="logo">
+               <img src="{{public_path('BackEndSourceFile')}}/Nicks_logo/nickslogo.jpg" style="border-radius: 50%; width: 90px;">
+               <h4 class="Nick">Nick's Resto Bar & Cafe Restaurant</h4>
+               <h4>Gadgaron Matnog Sorsogon</h4>
+            </div>
+            </div>
           <center>
-            <h1 style="margin:50px;">Customer Report</h1>
-            <hr>
+            <br>
+            <h1>Customer Report</h1>
           <table id="example1">
             <thead>
               <tr>
@@ -42,7 +69,6 @@
                 <th>Phone Number</th>
                 <th>Email</th>
                 <th>Role</th>
-              
               </tr>
             </thead>
             <tbody>
@@ -57,7 +83,7 @@
               @if($user -> google_id == null)               
               <td>{{$user->name}} {{$user->middlename}} {{$user->lastname}}</td>
               @else
-               <td>{{ $user -> googe_name }}</td>
+               <td>{{ $user -> google_name }}</td>
               @endif
 
               <td>{{ $user -> purok }}</td>
@@ -67,7 +93,7 @@
                       N/A
                       
                   @else
-                    {{$user->name}}
+                    {{$user-> address}}
 
                   @endif
               </td>

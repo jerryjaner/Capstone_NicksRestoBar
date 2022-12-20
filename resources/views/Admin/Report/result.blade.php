@@ -24,12 +24,10 @@
           <div class="card-header">
             <h3 class="card-title" id ="filter"><b>Filtered Orders </b></h3>
 
-             <a href="{{route('filtered')}}" class="btn btn-info btn-sm"  style="float: right; margin-left: 10px;">
+             <a target="_blank" href="{{route('filtered')}}" class="btn btn-info btn-sm"  style="float: right; margin-left: 10px;">
              	<i class="fas fa-print"></i> Print</a>
 
-            
-             
-
+    
              <a href="{{route('month')}}" class="btn btn-danger btn-sm" style="float: right;">Back</a>
             
           </div>   

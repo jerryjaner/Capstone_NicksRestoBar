@@ -59,7 +59,7 @@
 					<div class="card ">
 						<div class="card-header"> 
 						<h5 style="float: left;"><strong>Invoice # {{$order->id}}</strong></h5>
-						<a class="btn btn-info btn-sm" style="float: right;" href="{{route('download_invoice',['id'=>$order->id])}}" id="invoicefont">
+						<a target="_blank" class="btn btn-info btn-sm" style="float: right;" href="{{route('download_invoice',['id'=>$order->id])}}" id="invoicefont">
    						     <b>Print / Download Invoice </b>
   			   			 </a>
 						

@@ -46,7 +46,7 @@
 
              @php($i = 1)
               @foreach($orders as $filtered)
-            
+                
                 <tr>
                    <td style="font-family: poppins">{{$i++}}</td>
                    @if($filtered -> google_id == null)
@@ -57,6 +57,7 @@
                    <td style="font-family: poppins">{{ $filtered -> order_total}} Pesos</td>
                    <td style="font-family: poppins">{{\Carbon\Carbon::parse($filtered->created_at)->Format('m-d-Y')}}</td>
                 </tr>
+              
              
               @endforeach
            

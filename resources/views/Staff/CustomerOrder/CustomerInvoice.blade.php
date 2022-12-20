@@ -18,7 +18,6 @@
 					    font-family: 'Calibri', sans-serif !important;
 					}
 
-
 					.mt-100{
 					  margin-top: 50px;
 					}
@@ -57,7 +56,7 @@
 					<div class="card ">
 						<div class="card-header"> 
 							<h5 style="float: left;"><strong>Invoice # {{$order->id}}</strong></h5>
-							<a class="btn btn-info btn-sm" style="float: right;" href="{{route('download_receipt',['id'=>$order->id])}}">
+							<a target="_blank" class="btn btn-info btn-sm" style="float: right;" href="{{route('download_receipt',['id'=>$order->id])}}">
        						     <b>Download Invoice </b>
       			   			 </a>
       			   			 

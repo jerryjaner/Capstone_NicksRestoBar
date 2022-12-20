@@ -42,6 +42,7 @@ class ReportController extends Controller
 
     public function filter(Request $request){
 
+        
         $fromdate = $request->input('fromdate');
         $todate = $request->input('todate');
 
@@ -52,24 +53,22 @@ class ReportController extends Controller
         ->whereDate('orders.created_at', '<=', $todate)
         ->get();
 
-        return view('Admin.Report.Month',compact('orders'));
+         return view('Admin.Report.Month',compact('orders'));
+         //$pdf = PDF::loadView('Admin.Report.filter',compact('orders'));
+         //return $pdf->stream('filtered.pdf');
 
-         // $pdf = PDF::loadView('Admin.Report.filter',compact('orders'));
-         // return $pdf->stream('filtered.pdf');
 
-
-     //  return view('Admin.Report.result',data: compact('orders'));
+    //  return view('Admin.Report.result',data: compact('orders'));
      //  return view('Admin.Report.Month', compact('orders'));
 
     }
 
     public function download_filtered(){
 
-       
-
+    
         $orders = DB::table('orders')
         ->join('users','orders.user_id','=', 'users.id')
-        ->select('orders.*', 'orders.created_at','users.name','users.middlename','users.lastname','users.google_id','users.google_name')
+        ->select('orders.*','orders.created_at','users.name','users.middlename','users.lastname','users.google_name','users.google_id')
         ->get();
 
         $pdf = PDF::loadView('Admin.Report.filter',compact('orders'));

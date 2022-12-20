@@ -1,11 +1,12 @@
 @extends('Admin.master')
 @section('title')
 
-	Monthly Report
+	Monthly Transaction
 
 @endsection
 @section('content')
 <style>
+	
    div.dataTables_wrapper div.dataTables_length select
    {
   		width: 60px;
@@ -15,29 +16,39 @@
    	text-align: center;
 
    }
+   .header{
+      text-align: center;
+    }
+    .header img{
+      float:left;
+      margin-left: 20%;
+    }
+    .header h4{
+      position: relative;
+      margin-right: 25%;
+    /*  line-height: 0.9px;*/
+      font-family: 'Poppins', sans-serif;
+    }
  
 </style>
 
 <div class="card my-2">
 	<div class="card-header">
+		
 	   <h3 class="card-title" ><b> Monthly Report</b></h3>
 
-	    <button type="button" class="btn btn-secondary btn-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#modalfilter" data-bs-whatever="@fat" id="userfont"><i class="fas fa-filter"></i> Filter Orders Report</button>
+	    <button type="button" class="btn btn-secondary btn-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#modalfilter" data-bs-whatever="@fat" id="userfont"><i class="fas fa-filter"></i> Filter Monthly Report</button>
 
 	    <a href="{{route('month')}}" class="btn btn-success btn-sm " style="float: right; margin-right: 5px;" ><i class="fas fa-sync"></i> Refresh</a>
 	 </div>
 	 <div class="card-body">
-
-
-        
-
+   
 	    <table id="example3" class="table table-bordered table-striped">   
-	     <!-- Modal start here -->
 	        <div class="modal fade" id="modalfilter" tabindex="-1" aria-labelledby="modalfilter" aria-hidden="true">
 	          <div class="modal-dialog">
 	            <div class="modal-content">
 	              <div class="modal-header text-center">
-	                <h5 class="modal-title w-100"  id="modalfilter">Filter Order Report</h5>
+	                <h5 class="modal-title w-100"  id="modalfilter">Filter Monthly Report</h5>
 	                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	              </div>
 	              <div class="modal-body">
@@ -65,14 +76,13 @@
 	            </div>
 	          </div>
 	        </div>    
-         <!-- End of Modal --> 
+         
 
-         	
-
-	             
+         
 	      <thead>
+
 	        <tr>
-		      {{--   <th>#</th> --}}
+		     
 		        <th>Order Date</th>
 		        <th>Customer Name</th>
 		        <th>Order Price Total</th>
@@ -87,7 +97,6 @@
             
 	      	<tr>
 
-	      	{{-- 	<td>{{$i++}}</td> --}}
 	      			<td>{{\Carbon\Carbon::parse($ReportOrder->created_at)->toFormattedDateString()}}</td>
 	      			
 	      		@if($ReportOrder -> google_id == null)

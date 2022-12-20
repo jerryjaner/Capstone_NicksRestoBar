@@ -22,7 +22,7 @@
     <div class="card my-5">
       <div class="card-header">
         <h3 class="card-title" id="report"><b>Report of Customer</b></h3>
-            <a href="{{route('download_client')}}"  class="btn btn-info btn-sm" style="float: right;">
+            <a target="_blank" href="{{route('download_client')}}"  class="btn btn-info btn-sm" style="float: right;">
               Print Report
             </a>
       </div>        
