@@ -43,7 +43,12 @@ class UserController extends Controller
        }
     
       $customer_order = Order::all(); 
-   		$dishes = Dish::where('dish_status', 1) -> get(); 
+   		// $dishes = Dish::where('dish_status', 1) -> get(); 
+      $dishes = DB::table('dishes')
+                  ->join('categories','dishes.category_id', '=', 'categories.category_id')
+                  ->where('category_status', 1)
+                  ->where('dish_status', 1)
+                  ->get();
 
    		return view('User.include.Home',compact('dishes','top_Products','customer_order') );
    }

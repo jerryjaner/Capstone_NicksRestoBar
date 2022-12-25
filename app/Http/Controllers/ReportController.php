@@ -53,12 +53,12 @@ class ReportController extends Controller
         ->whereDate('orders.created_at', '<=', $todate)
         ->get();
 
-         return view('Admin.Report.Month',compact('orders'));
+        // return view('Admin.Report.Month',compact('orders'));
          //$pdf = PDF::loadView('Admin.Report.filter',compact('orders'));
          //return $pdf->stream('filtered.pdf');
 
 
-    //  return view('Admin.Report.result',data: compact('orders'));
+    return view('Admin.Report.result',data: compact('orders'));
      //  return view('Admin.Report.Month', compact('orders'));
 
     }

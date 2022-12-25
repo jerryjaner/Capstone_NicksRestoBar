@@ -72,7 +72,20 @@
                <td style="text-align: center; color:  black;">{{$order->google_name}}</td>
 
               @endif
-               <td style="text-align: center; color:  black;">{{$order->order_total}}</td>
+               
+               @if($order -> payment_type == 'Cash_on_Delivery')
+
+                  @php($total_amount = $order -> order_total + $order -> order_shippingfee)
+
+                  <td style="text-align: center; color:  black;">{{ $total_amount }}</td>   
+
+               @else
+
+                 <td style="text-align: center; color:  black;">{{$order->order_total}}</td>   
+
+               @endif
+
+
                <td style="text-align: center; color:  black;">{{$order->order_status}} </td>
                <td style="text-align: center; color:  black;">
 
